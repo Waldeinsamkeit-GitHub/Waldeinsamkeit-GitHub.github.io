@@ -78,7 +78,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2026/04/08/windows 环境 hexo deploy ssh 公钥权限问题 完整解决方案/"/>
+    <link rel="canonical" href="http://example.com/2026/04/09/在github中查看仓库的创建时间/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -87,14 +87,14 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一篇测试文章">
-<meta property="og:url" content="http://example.com/2026/04/08/Windows%20%E7%8E%AF%E5%A2%83%20Hexo%20Deploy%20SSH%20%E5%85%AC%E9%92%A5%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%20%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/index.html">
+<meta property="og:title" content="在GitHub中查看仓库的创建时间">
+<meta property="og:url" content="http://example.com/2026/04/09/%E5%9C%A8GitHub%E4%B8%AD%E6%9F%A5%E7%9C%8B%E4%BB%93%E5%BA%93%E7%9A%84%E5%88%9B%E5%BB%BA%E6%97%B6%E9%97%B4/index.html">
 <meta property="og:site_name" content="Async Garden">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/images/redefine-og.webp">
-<meta property="article:published_time" content="2026-04-08T09:59:00.000Z">
-<meta property="article:modified_time" content="2026-04-08T10:00:42.032Z">
+<meta property="article:published_time" content="2026-04-09T13:49:12.000Z">
+<meta property="article:modified_time" content="2026-04-09T13:54:20.405Z">
 <meta property="article:author" content="Waldeinsamkeit">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
@@ -109,7 +109,7 @@
     
     <title>
         
-            第一篇测试文章 | A salty fish
+            在GitHub中查看仓库的创建时间 | A salty fish
         
     </title>
 
@@ -331,7 +331,7 @@
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">5</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -354,7 +354,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">第一篇测试文章</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">在GitHub中查看仓库的创建时间</h1>
 			</div>
 			
 		</div>
@@ -375,15 +375,15 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2026-04-08 17:59</span>
-        <span class="mobile">2026-04-08 17:59</span>
+        <span class="desktop">2026-04-09 21:49:12</span>
+        <span class="mobile">2026-04-09 21:49:12</span>
         <span class="hover-info">创建</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2026-04-08 18:42</span>
-            <span class="mobile">2026-04-08 18:42</span>
+            <span class="desktop">2026-04-09 21:54:20</span>
+            <span class="mobile">2026-04-09 21:54:20</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -410,119 +410,76 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h1 id="Windows-环境-Hexo-Deploy-SSH-公钥权限问题-完整解决方案"><a href="#Windows-环境-Hexo-Deploy-SSH-公钥权限问题-完整解决方案" class="headerlink" title="Windows 环境 Hexo Deploy SSH 公钥权限问题 完整解决方案"></a>Windows 环境 Hexo Deploy SSH 公钥权限问题 完整解决方案</h1><h2 id="文档说明"><a href="#文档说明" class="headerlink" title="文档说明"></a>文档说明</h2><p>本文整理了 <strong>Windows 系统中，Git Bash 可正常执行 <code>hexo deploy</code>，但 CMD 提示 <code>git@github.com: Permission denied (publickey)</code></strong> 的完整问题排查、原因分析与永久解决方案，适用于 SSH 密钥自定义存放、OpenSSH 服务已配置、双终端验证成功但部署失败的场景。</p>
-<hr>
-<h2 id="一、问题背景与现象"><a href="#一、问题背景与现象" class="headerlink" title="一、问题背景与现象"></a>一、问题背景与现象</h2><h3 id="1-初始操作"><a href="#1-初始操作" class="headerlink" title="1. 初始操作"></a>1. 初始操作</h3><ol>
-<li><p>在 <strong>Git Bash</strong> 中手动配置 SSH：</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span> $(ssh-agent -s)</span><br><span class="line">ssh-add ../SSH-KEY/id_ed25519  <span class="comment"># 密钥存放在自定义目录，非系统默认路径</span></span><br><span class="line">ssh -T git@github.com  <span class="comment"># 验证连接成功</span></span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>缺陷：<strong>密钥随 Bash 重启失效</strong>，需重复配置。</p>
-</li>
-</ol>
-<h3 id="2-优化配置"><a href="#2-优化配置" class="headerlink" title="2. 优化配置"></a>2. 优化配置</h3><ol>
-<li>启用 Windows 原生 <code>OpenSSH Authentication Agent</code> 服务，设置为<strong>自动启动</strong>；</li>
-<li>系统级添加 SSH 密钥，<strong>Git Bash &#x2F; CMD 手动执行 <code>ssh -T git@github.com</code> 均验证成功</strong>；</li>
-<li>Hexo 配置文件 <code>_config.yml</code> 仓库地址为 <code>git@</code> 格式（SSH 协议）。</li>
-</ol>
-<h3 id="3-最终异常现象"><a href="#3-最终异常现象" class="headerlink" title="3. 最终异常现象"></a>3. 最终异常现象</h3><p>✅ <strong>Git Bash</strong>：<code>hexo deploy</code> 部署完全正常</p>
-<p>❌ <strong>CMD</strong>：执行 <code>hexo deploy</code> 报错：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git@github.com: Permission denied (publickey).</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line">FATAL Something&#x27;s wrong. Error: Spawn failed</span><br></pre></td></tr></table></figure></div>
-
-<hr>
-<h2 id="二、核心原因分析"><a href="#二、核心原因分析" class="headerlink" title="二、核心原因分析"></a>二、核心原因分析</h2><h3 id="根本问题：Windows-存在两套独立的-SSH-客户端"><a href="#根本问题：Windows-存在两套独立的-SSH-客户端" class="headerlink" title="根本问题：Windows 存在两套独立的 SSH 客户端"></a>根本问题：Windows 存在<strong>两套独立的 SSH 客户端</strong></h3><ol>
-<li><p><strong>Windows 系统自带 OpenSSH</strong></p>
-<ul>
-<li>路径：<code>C:\Windows\System32\OpenSSH\</code></li>
-<li>你手动验证 <code>ssh -T</code> 用的是这个客户端，已成功加载密钥。</li>
-</ul>
-</li>
-<li><p><strong>Git for Windows 自带内置 SSH</strong></p>
-<ul>
-<li>Hexo 部署时，**<code>hexo-deployer-git</code> 会调用 Git 工具**，Git 默认使用自己的内置 SSH 客户端；</li>
-<li>你的 SSH 密钥存放在<strong>自定义目录</strong>（<code>../SSH-KEY/</code>），<strong>Git 内置 SSH 无法识别该路径</strong>；</li>
-<li>Git Bash 手动执行 <code>ssh-add</code> 可临时指定密钥，CMD 无此操作，导致部署失败。</li>
-</ul>
-</li>
-</ol>
-<h3 id="补充原因"><a href="#补充原因" class="headerlink" title="补充原因"></a>补充原因</h3><ul>
-<li>Git Bash 与 CMD 是<strong>独立环境</strong>，手动启动的 <code>ssh-agent</code> 不跨环境共享；</li>
-<li>自定义密钥目录，未配置全局 SSH 指向，导致双客户端密钥不同步。</li>
-</ul>
-<hr>
-<h2 id="三、前置条件确认（已满足）"><a href="#三、前置条件确认（已满足）" class="headerlink" title="三、前置条件确认（已满足）"></a>三、前置条件确认（已满足）</h2><p>执行以下操作，确保基础配置无误：</p>
+			<h3 id="👀-网页直接查看（最快捷）"><a href="#👀-网页直接查看（最快捷）" class="headerlink" title="👀 网页直接查看（最快捷）"></a>👀 网页直接查看（最快捷）</h3><p>最快捷的方式是直接在网页上查看：</p>
 <ol>
-<li><p><strong>OpenSSH 服务已启用</strong></p>
-<p><code>Win+R</code> → 输入 <code>services.msc</code> → 找到 <code>OpenSSH Authentication Agent</code>：</p>
+<li>进入目标仓库的主页面。</li>
+<li>在页面右侧边栏的 “About” 信息模块中，通常就能直接找到<strong>创建时间</strong>。</li>
+<li>如果侧边栏没有直接显示，可以点击 “About” 模块右上角的齿轮图标或编辑按钮，在弹出的信息中通常也能找到。</li>
+<li>此外，仓库主页底部的 “Insights” -&gt; “Contributors” 页面，其时间线也能大致反映项目起始。</li>
+</ol>
+<p>这种方法适用于查看<strong>公共仓库</strong>。仓库的“创建时间”是公开信息，因此查看时不需要登录。但如果你要查看的是<strong>私有仓库</strong>，则需要登录并拥有相应权限。</p>
+<h3 id="🤖-使用官方API-GitHub-CLI-适合开发者"><a href="#🤖-使用官方API-GitHub-CLI-适合开发者" class="headerlink" title="🤖 使用官方API &#x2F; GitHub CLI (适合开发者)"></a>🤖 使用官方API &#x2F; GitHub CLI (适合开发者)</h3><p>如果你习惯使用命令行或需要批量查询，GitHub 官方提供的 API 和 CLI 工具非常高效。</p>
 <ul>
-<li>启动类型：<strong>自动</strong></li>
-<li>服务状态：<strong>正在运行</strong></li>
+<li><strong>使用GitHub API</strong>：在浏览器地址栏输入 <code>https://api.github.com/repos/&#123;用户名&#125;/&#123;仓库名&#125;</code>，在返回的JSON数据中查找 <code>created_at</code> 字段即可。</li>
+<li><strong>使用GitHub CLI</strong>：如果你已安装GitHub CLI (<code>gh</code>)，只需在终端运行 <code>gh repo view &#123;用户名&#125;/&#123;仓库名&#125; --json createdAt</code>，创建时间就会以JSON格式输出。</li>
 </ul>
-</li>
-<li><p><strong>SSH 连接验证成功</strong></p>
-<p>CMD &#x2F; Git Bash 均执行：</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></div>
-
-<p>出现以下提示即为成功：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi Waldeinsamkeit-GitHub! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p><strong>Hexo 配置正确</strong></p>
-<p><code>_config.yml</code> 中仓库地址为 <strong>SSH 格式</strong>，非 HTTPS：</p>
-<div class="code-container" data-rel="Yaml"><figure class="iseeu highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:用户名/仓库名.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure></div></li>
-</ol>
-<hr>
-<h2 id="四、终极解决方案（永久生效，推荐）"><a href="#四、终极解决方案（永久生效，推荐）" class="headerlink" title="四、终极解决方案（永久生效，推荐）"></a>四、终极解决方案（永久生效，推荐）</h2><h3 id="核心思路"><a href="#核心思路" class="headerlink" title="核心思路"></a>核心思路</h3><p>强制让 <strong>Git 全局使用 Windows 系统自带的 OpenSSH</strong>，统一双客户端，彻底解决密钥不互通问题。</p>
-<h3 id="执行命令"><a href="#执行命令" class="headerlink" title="执行命令"></a>执行命令</h3><p>打开 <strong>CMD</strong> 执行（无需管理员）：</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.sshCommand <span class="string">&quot;C:/Windows/System32/OpenSSH/ssh.exe&quot;</span></span><br></pre></td></tr></table></figure></div>
-
-<h3 id="命令作用"><a href="#命令作用" class="headerlink" title="命令作用"></a>命令作用</h3><ul>
-<li>全局配置 Git：放弃自带 SSH 客户端，固定使用系统 <code>ssh.exe</code>；</li>
-<li>所有终端（CMD &#x2F; Git Bash &#x2F; PowerShell）、所有 Git 操作（含 Hexo 部署）共用同一套 SSH 密钥；</li>
-<li><strong>一次配置，永久生效</strong>，重启电脑 &#x2F; 终端均无需重复操作。</li>
-</ul>
-<h3 id="验证部署"><a href="#验证部署" class="headerlink" title="验证部署"></a>验证部署</h3><p>配置完成后直接执行：</p>
-<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></div>
-
-<p>✅ 部署成功！</p>
-<hr>
-<h2 id="五、兜底解决方案（自定义密钥目录专用）"><a href="#五、兜底解决方案（自定义密钥目录专用）" class="headerlink" title="五、兜底解决方案（自定义密钥目录专用）"></a>五、兜底解决方案（自定义密钥目录专用）</h2><p>若上述命令未生效（极端情况），通过 <strong>SSH 配置文件</strong> 强制指定密钥路径：</p>
+<h3 id="📜-查看首次代码提交-更精确"><a href="#📜-查看首次代码提交-更精确" class="headerlink" title="📜 查看首次代码提交 (更精确)"></a>📜 查看首次代码提交 (更精确)</h3><p>对于关心<strong>项目第一个代码版本</strong>的用户，可以通过Git命令行查看最早的提交记录：</p>
 <ol>
-<li><p>进入你的<strong>自定义 SSH 密钥目录</strong>（<code>../SSH-KEY/</code>）；</p>
-</li>
-<li><p>新建文件，命名为 <code>config</code>（<strong>无文件后缀名</strong>，纯文本）；</p>
-</li>
-<li><p>写入以下内容（替换为你的密钥<strong>绝对路径</strong>）：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">  IdentityFile D:/你的路径/SSH-KEY/id_ed25519</span><br><span class="line">  User git</span><br></pre></td></tr></table></figure></div>
-</li>
-<li><p>保存后重新执行 <code>hexo deploy</code>。</p>
+<li>将项目克隆 (<code>git clone</code>) 到本地。</li>
+<li>进入项目目录，执行命令 <code>git log --reverse --format=&quot;%ai&quot; | head -1</code>。<ul>
+<li>此方法返回的是首次提交的时间，可能与仓库的创建时间有出入，尤其对于代码提交较晚的空项目。</li>
+</ul>
 </li>
 </ol>
-<hr>
-<h2 id="六、关键命令汇总"><a href="#六、关键命令汇总" class="headerlink" title="六、关键命令汇总"></a>六、关键命令汇总</h2><table>
+<h3 id="🛠️-使用浏览器扩展-增强显示"><a href="#🛠️-使用浏览器扩展-增强显示" class="headerlink" title="🛠️ 使用浏览器扩展 (增强显示)"></a>🛠️ 使用浏览器扩展 (增强显示)</h3><p>如果你希望在日常浏览时，页面能自动将“X天前”这样的相对时间显示为精确日期，可以试试 <strong>GitHub Enhancer</strong> 这类浏览器扩展。</p>
+<h3 id="💎-总结与选择建议"><a href="#💎-总结与选择建议" class="headerlink" title="💎 总结与选择建议"></a>💎 总结与选择建议</h3><table>
 <thead>
 <tr>
-<th>用途</th>
-<th>命令</th>
+<th align="left">方法</th>
+<th align="left">优点</th>
+<th align="left">缺点</th>
+<th align="left">适用场景</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>验证 SSH 连接</td>
-<td><code>ssh -T git@github.com</code></td>
+<td align="left"><strong>网页直接查看</strong></td>
+<td align="left">最快，无需额外工具，操作直观</td>
+<td align="left">信息可能被折叠或位置变化</td>
+<td align="left">日常快速查看，偶尔查一两个项目</td>
 </tr>
 <tr>
-<td>配置 Git 使用系统 SSH</td>
-<td><code>git config --global core.sshCommand &quot;C:/Windows/System32/OpenSSH/ssh.exe&quot;</code></td>
+<td align="left"><strong>GitHub API</strong></td>
+<td align="left">信息精确，可编程调用，返回标准JSON格式</td>
+<td align="left">需要手动拼接URL，返回信息较多</td>
+<td align="left">开发者需要精确时间，或编写自动化脚本</td>
 </tr>
 <tr>
-<td>Hexo 清理 + 部署</td>
-<td><code>hexo clean &amp;&amp; hexo deploy</code></td>
+<td align="left"><strong>GitHub CLI</strong></td>
+<td align="left">命令行操作，效率高，输出简洁</td>
+<td align="left">需要额外安装GitHub CLI工具</td>
+<td align="left">习惯命令行的开发者，批量查询</td>
+</tr>
+<tr>
+<td align="left"><strong>查看首次提交</strong></td>
+<td align="left">能获取项目真正开始代码开发的起始点</td>
+<td align="left">需克隆仓库，耗时较长，可能不准</td>
+<td align="left">深度调研，了解项目实际代码开发起点</td>
+</tr>
+<tr>
+<td align="left"><strong>浏览器扩展</strong></td>
+<td align="left">自动将相对时间转为绝对时间，浏览体验好</td>
+<td align="left">需要安装浏览器插件</td>
+<td align="left">日常频繁浏览GitHub，习惯使用绝对时间</td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="七、总结"><a href="#七、总结" class="headerlink" title="七、总结"></a>七、总结</h2><ol>
-<li><strong>问题本质</strong>：Windows 双 SSH 客户端冲突 + 自定义密钥目录，导致 Git 内置 SSH 找不到密钥；</li>
-<li><strong>最优解</strong>：一行命令统一 Git 与系统 SSH 客户端，永久解决跨终端部署问题；</li>
-<li><strong>适用场景</strong>：Hexo 部署、Git 多终端使用、自定义 SSH 密钥路径、Windows 环境。</li>
-</ol>
+<p>希望这些方法能帮你找到需要的项目创建时间。</p>
+<p>插播一个内容：</p>
+<p>若是使用GitHub API的方法来查找时间，<code>created_at</code>字段会以<code>&#123;y-m-d&#125;T&#123;h:m:s&#125;Z</code>的格式输出（大括号用于方便理解，实际上没有）。这个格式是 <strong>ISO 8601</strong> 标准格式的日期时间表示。其中：</p>
+<ul>
+<li><strong><code>T</code><strong>：是</strong>日期与时间的分隔符</strong>。它只是把日期和时间明确分开，避免歧义。</li>
+<li>**<code>Z</code>**：表示 <strong>UTC 时间</strong>（协调世界时，零时区）。<code>Z</code> 来自 “Zulu time”（军事和航空中使用的UTC代号）。它等同于 <code>+00:00</code> 时区偏移。</li>
+</ul>
+<p>所以，如果需要转换成自己的本地时间，就根据所在的时区加上或减去偏移量（例如，北京时间是 UTC+8，那么对应的时间就需要加八个小时）。</p>
 
 		</div>
 
@@ -530,18 +487,18 @@
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>标题:</strong> 第一篇测试文章</li>
+        <li><strong>标题:</strong> 在GitHub中查看仓库的创建时间</li>
         <li><strong>作者:</strong> Waldeinsamkeit</li>
         <li><strong>创建于
-                :</strong> 2026-04-08 17:59:00</li>
+                :</strong> 2026-04-09 21:49:12</li>
         
             <li>
                 <strong>更新于
-                    :</strong> 2026-04-08 18:00:42
+                    :</strong> 2026-04-09 21:54:20
             </li>
         
         <li>
-            <strong>链接:</strong> https://github.com/Waldeinsamkeit-GitHub/2026/04/08/Windows 环境 Hexo Deploy SSH 公钥权限问题 完整解决方案/
+            <strong>链接:</strong> https://github.com/Waldeinsamkeit-GitHub/2026/04/09/在GitHub中查看仓库的创建时间/
         </li>
         <li>
             <strong>
@@ -568,9 +525,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2026/04/06/%E8%B7%9FDeepSeek%E7%9A%84%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95xd/">
+				<a class="next" rel="next" href="/2026/04/08/Windows%20%E7%8E%AF%E5%A2%83%E4%B8%8B%20Hexo%20Deploy%20%E7%9A%84%20SSH%20%E5%85%AC%E9%92%A5%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98%20%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item truncate max-w-48"></span>
+						<span class="post-nav-title-item truncate max-w-48">Windows 环境下 Hexo Deploy 的 SSH 公钥权限问题 解决方案</span>
 						<span class="post-nav-item">下一篇</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -653,8 +610,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
-		<div class="page-title">第一篇测试文章</div>
-		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Windows-%E7%8E%AF%E5%A2%83-Hexo-Deploy-SSH-%E5%85%AC%E9%92%A5%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98-%E5%AE%8C%E6%95%B4%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-text">Windows 环境 Hexo Deploy SSH 公钥权限问题 完整解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E"><span class="nav-text">文档说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%97%AE%E9%A2%98%E8%83%8C%E6%99%AF%E4%B8%8E%E7%8E%B0%E8%B1%A1"><span class="nav-text">一、问题背景与现象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%88%9D%E5%A7%8B%E6%93%8D%E4%BD%9C"><span class="nav-text">1. 初始操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BC%98%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-text">2. 优化配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9C%80%E7%BB%88%E5%BC%82%E5%B8%B8%E7%8E%B0%E8%B1%A1"><span class="nav-text">3. 最终异常现象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%A0%B8%E5%BF%83%E5%8E%9F%E5%9B%A0%E5%88%86%E6%9E%90"><span class="nav-text">二、核心原因分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%9C%AC%E9%97%AE%E9%A2%98%EF%BC%9AWindows-%E5%AD%98%E5%9C%A8%E4%B8%A4%E5%A5%97%E7%8B%AC%E7%AB%8B%E7%9A%84-SSH-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-text">根本问题：Windows 存在两套独立的 SSH 客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E5%8E%9F%E5%9B%A0"><span class="nav-text">补充原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6%E7%A1%AE%E8%AE%A4%EF%BC%88%E5%B7%B2%E6%BB%A1%E8%B6%B3%EF%BC%89"><span class="nav-text">三、前置条件确认（已满足）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E7%BB%88%E6%9E%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88%E6%B0%B8%E4%B9%85%E7%94%9F%E6%95%88%EF%BC%8C%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-text">四、终极解决方案（永久生效，推荐）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%80%9D%E8%B7%AF"><span class="nav-text">核心思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4"><span class="nav-text">执行命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%91%BD%E4%BB%A4%E4%BD%9C%E7%94%A8"><span class="nav-text">命令作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E9%83%A8%E7%BD%B2"><span class="nav-text">验证部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%85%9C%E5%BA%95%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%88%E8%87%AA%E5%AE%9A%E4%B9%89%E5%AF%86%E9%92%A5%E7%9B%AE%E5%BD%95%E4%B8%93%E7%94%A8%EF%BC%89"><span class="nav-text">五、兜底解决方案（自定义密钥目录专用）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%85%B3%E9%94%AE%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB"><span class="nav-text">六、关键命令汇总</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%80%BB%E7%BB%93"><span class="nav-text">七、总结</span></a></li></ol></li></ol>
+		<div class="page-title">在GitHub中查看仓库的创建时间</div>
+		<ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%91%80-%E7%BD%91%E9%A1%B5%E7%9B%B4%E6%8E%A5%E6%9F%A5%E7%9C%8B%EF%BC%88%E6%9C%80%E5%BF%AB%E6%8D%B7%EF%BC%89"><span class="nav-text">👀 网页直接查看（最快捷）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%A4%96-%E4%BD%BF%E7%94%A8%E5%AE%98%E6%96%B9API-GitHub-CLI-%E9%80%82%E5%90%88%E5%BC%80%E5%8F%91%E8%80%85"><span class="nav-text">🤖 使用官方API &#x2F; GitHub CLI (适合开发者)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%93%9C-%E6%9F%A5%E7%9C%8B%E9%A6%96%E6%AC%A1%E4%BB%A3%E7%A0%81%E6%8F%90%E4%BA%A4-%E6%9B%B4%E7%B2%BE%E7%A1%AE"><span class="nav-text">📜 查看首次代码提交 (更精确)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E4%BD%BF%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E6%89%A9%E5%B1%95-%E5%A2%9E%E5%BC%BA%E6%98%BE%E7%A4%BA"><span class="nav-text">🛠️ 使用浏览器扩展 (增强显示)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%92%8E-%E6%80%BB%E7%BB%93%E4%B8%8E%E9%80%89%E6%8B%A9%E5%BB%BA%E8%AE%AE"><span class="nav-text">💎 总结与选择建议</span></a></li></ol>
 
 	</div>
 </div>
@@ -682,7 +639,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 4 篇文章
+                        共撰写了 5 篇文章
                     </span>
                     
                 </p>
