@@ -417,60 +417,93 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="段落"><a href="#段落" class="headerlink" title="段落"></a>段落</h2><p>在 Markdown 中创建段落，需使用<strong>空行</strong>来分隔文本块。每个由空行分隔的文本块都被视为独立的段落。</p>
+			<h2 id="段落">段落</h2>
+<p>在 Markdown
+中创建段落，需使用<strong>空行</strong>来分隔文本块。每个由空行分隔的文本块都被视为独立的段落。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">这是一个段落。</span><br><span class="line"></span><br><span class="line">这是另一个段落。</span><br></pre></td></tr></table></figure></div>
-
 <p>这是一个段落。</p>
 <p>这是另一个段落。</p>
 <p>文本行之间的空行会创建独立的段落。这是 Markdown 的默认行为。</p>
 <p>多个空格</p>
-<p>段落内和段落之间的多个相邻空格在<a href="%E7%BC%96%E8%BE%91%E4%B8%8E%E9%A2%84%E8%A7%88%E7%AC%94%E8%AE%B0#%E9%98%85%E8%AF%BB%E8%A7%86%E5%9B%BE">阅读视图</a>或 <a href="%E5%8F%91%E5%B8%83%E6%9C%8D%E5%8A%A1%E7%AE%80%E4%BB%8B">Obsidian Publish</a> 网站上显示时会折叠为单个空格。</p>
+<p>段落内和段落之间的多个相邻空格在<a
+href="编辑与预览笔记#阅读视图">阅读视图</a>或 <a
+href="发布服务简介">Obsidian Publish</a>
+网站上显示时会折叠为单个空格。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Multiple          adjacent          spaces</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">and multiple newlines between paragraphs.</span><br></pre></td></tr></table></figure></div>
-
 <blockquote>
-<p>Multiple          adjacent          spaces</p>
+<p>Multiple adjacent spaces</p>
 <p>and multiple newlines between paragraphs.</p>
 </blockquote>
-<p>如果你想防止空格被折叠或添加多个空格，可以使用 <code> </code>（不间断空格）或 <code>&lt;br&gt;</code>（换行）HTML 标签。</p>
-<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><p>在 Obsidian 中，默认情况下按一次 <code>Enter</code> 会在笔记中创建新行，但在渲染输出中，这被视为同一段落的<em>延续</em>，这遵循了典型的 Markdown 行为。要在段落<em>内</em>插入换行而不开始新段落，你可以：</p>
+<p>如果你想防止空格被折叠或添加多个空格，可以使用
+<code></code>（不间断空格）或 <code>&lt;br&gt;</code>（换行）HTML
+标签。</p>
+<h3 id="换行">换行</h3>
+<p>在 Obsidian 中，默认情况下按一次 <code>Enter</code>
+会在笔记中创建新行，但在渲染输出中，这被视为同一段落的<em>延续</em>，这遵循了典型的
+Markdown 行为。要在段落<em>内</em>插入换行而不开始新段落，你可以：</p>
 <ul>
-<li>在按 <code>Enter</code> 之前在行末添加<strong>两个空格</strong>，或者</li>
+<li>在按 <code>Enter</code>
+之前在行末添加<strong>两个空格</strong>，或者</li>
 <li>使用快捷键 <code>Shift+Enter</code> 直接插入换行。</li>
 </ul>
 <p>为什么多次按 <code>Enter</code> 不会在阅读视图中产生更多换行？</p>
-<p>在 Markdown 中，单个 <code>Enter</code> 会被忽略，多个连续的 <code>Enter</code> 只会产生一个新段落。这种行为符合 Markdown 的软换行规则，即额外的空行不会生成额外的换行或段落——它们会被折叠为单个段落分隔。这是 Markdown 处理文本的默认方式，确保段落自然流动而不会出现意外的断行。</p>
-<p>Obsidian 包含一个**<a href="%E8%AE%BE%E7%BD%AE#%E4%B8%A5%E6%A0%BC%E6%8D%A2%E8%A1%8C">严格换行</a>**设置，使 Obsidian 遵循标准 Markdown 规范处理换行。</p>
+<p>在 Markdown 中，单个 <code>Enter</code> 会被忽略，多个连续的
+<code>Enter</code> 只会产生一个新段落。这种行为符合 Markdown
+的软换行规则，即额外的空行不会生成额外的换行或段落——它们会被折叠为单个段落分隔。这是
+Markdown 处理文本的默认方式，确保段落自然流动而不会出现意外的断行。</p>
+<p>Obsidian 包含一个<strong><a
+href="设置#严格换行">严格换行</a></strong>设置，使 Obsidian 遵循标准
+Markdown 规范处理换行。</p>
 <p>要启用此功能：</p>
-<ol>
-<li>打开**<a href="%E8%AE%BE%E7%BD%AE">设置</a>**。</li>
+<ol type="1">
+<li>打开<strong><a href="设置">设置</a></strong>。</li>
 <li>转到<strong>编辑器</strong>选项卡。</li>
 <li>启用<strong>严格换行</strong>。</li>
 </ol>
-<p>在 Obsidian 中启用<strong>严格换行</strong>后，换行会根据行的分隔方式产生三种不同的行为：</p>
-<p><strong>单次回车且无尾随空格</strong>：单个 <code>Enter</code> 且没有尾随空格时，渲染后两行会合并为一行。</p>
+<p>在 Obsidian
+中启用<strong>严格换行</strong>后，换行会根据行的分隔方式产生三种不同的行为：</p>
+<p><strong>单次回车且无尾随空格</strong>：单个 <code>Enter</code>
+且没有尾随空格时，渲染后两行会合并为一行。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">line one</span><br><span class="line">line two</span><br></pre></td></tr></table></figure></div>
-
 <p>渲染为：</p>
 <p>line one line two</p>
-<p><strong>单次回车且有两个或更多尾随空格</strong>：如果在按 <code>Enter</code> 之前在第一行末尾添加两个或更多空格，两行仍属于同一段落，但会通过换行符（HTML <code>&lt;br&gt;</code> 元素）分隔。我们在此示例中用两个下划线代替空格。</p>
+<p><strong>单次回车且有两个或更多尾随空格</strong>：如果在按
+<code>Enter</code>
+之前在第一行末尾添加两个或更多空格，两行仍属于同一段落，但会通过换行符（HTML
+<code>&lt;br&gt;</code>
+元素）分隔。我们在此示例中用两个下划线代替空格。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">line three__  </span><br><span class="line">line four</span><br></pre></td></tr></table></figure></div>
-
 <p>渲染为：</p>
 <p>line three</p>
-<p> line four</p>
-<p><strong>双次回车（无论是否有尾随空格）</strong>：按两次（或更多次）<code>Enter</code> 会将行分为两个独立的段落（HTML <code>&lt;p&gt;</code> 元素），无论你是否在第一行末尾添加了空格。</p>
+<p>line four</p>
+<p><strong>双次回车（无论是否有尾随空格）</strong>：按两次（或更多次）<code>Enter</code>
+会将行分为两个独立的段落（HTML <code>&lt;p&gt;</code>
+元素），无论你是否在第一行末尾添加了空格。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">line five</span><br><span class="line"></span><br><span class="line">line six</span><br></pre></td></tr></table></figure></div>
-
 <p>渲染为：</p>
 <p>line five</p>
 <p>line six</p>
-<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>要创建标题，在标题文本前添加最多六个 <code>#</code> 符号。<code>#</code> 符号的数量决定标题的级别（如<a href="%E5%A4%A7%E7%BA%B2">大纲</a>中所示）。</p>
+<h2 id="标题">标题</h2>
+<p>要创建标题，在标题文本前添加最多六个 <code>#</code>
+符号。<code>#</code> 符号的数量决定标题的级别（如<a
+href="大纲">大纲</a>中所示）。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># 这是一级标题</span></span><br><span class="line"><span class="section">## 这是二级标题</span></span><br><span class="line"><span class="section">### 这是三级标题</span></span><br><span class="line"><span class="section">#### 这是四级标题</span></span><br><span class="line"><span class="section">##### 这是五级标题</span></span><br><span class="line"><span class="section">###### 这是六级标题</span></span><br></pre></td></tr></table></figure></div>
-
-
-
-<h1 id="这是一级标题"><a href="#这是一级标题" class="headerlink" title="这是一级标题"></a>这是一级标题</h1><h2 id="这是二级标题"><a href="#这是二级标题" class="headerlink" title="这是二级标题"></a>这是二级标题</h2><h3 id="这是三级标题"><a href="#这是三级标题" class="headerlink" title="这是三级标题"></a>这是三级标题</h3><h4 id="这是四级标题"><a href="#这是四级标题" class="headerlink" title="这是四级标题"></a>这是四级标题</h4><h5 id="这是五级标题"><a href="#这是五级标题" class="headerlink" title="这是五级标题"></a>这是五级标题</h5><h6 id="这是六级标题"><a href="#这是六级标题" class="headerlink" title="这是六级标题"></a>这是六级标题</h6><h2 id="加粗、斜体、高亮"><a href="#加粗、斜体、高亮" class="headerlink" title="加粗、斜体、高亮"></a>加粗、斜体、高亮</h2><p>文本格式也可以通过<a href="%E7%BC%96%E8%BE%91%E7%9B%B8%E5%85%B3%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE">编辑相关的快捷键</a>来应用。</p>
+<h1 id="这是一级标题">这是一级标题</h1>
+<h2 id="这是二级标题">这是二级标题</h2>
+<h3 id="这是三级标题">这是三级标题</h3>
+<h4 id="这是四级标题">这是四级标题</h4>
+<h5 id="这是五级标题">这是五级标题</h5>
+<h6 id="这是六级标题">这是六级标题</h6>
+<h2 id="加粗斜体高亮">加粗、斜体、高亮</h2>
+<p>文本格式也可以通过<a
+href="编辑相关的快捷键">编辑相关的快捷键</a>来应用。</p>
 <table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 22%" />
+<col style="width: 31%" />
+<col style="width: 31%" />
+</colgroup>
 <thead>
 <tr>
 <th>样式</th>
@@ -479,7 +512,8 @@
 <th>输出</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>加粗</td>
 <td><code>** **</code> 或 <code>__ __</code></td>
 <td><code>**加粗文本**</code></td>
@@ -515,87 +549,100 @@
 <td><code>***加粗和斜体文本***</code></td>
 <td>*<strong>加粗和斜体文本*</strong></td>
 </tr>
-</tbody></table>
-<p>可以通过在格式符号前添加反斜杠 <code>\</code> 来强制以纯文本显示。</p>
+</tbody>
+</table>
+<p>可以通过在格式符号前添加反斜杠 <code>\</code>
+来强制以纯文本显示。</p>
 <p><strong>这行不会被加粗</strong></p>
 <div class="code-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\<span class="emphasis">*\*</span>这行不会被加粗\<span class="emphasis">*\*</span></span><br></pre></td></tr></table></figure></div>
-
 <p><strong>这行会是斜体并显示星号</strong></p>
 <div class="code-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\<span class="strong">**这行会是斜体并显示星号<span class="emphasis">*\*</span></span></span><br></pre></td></tr></table></figure></div>
-
-<h2 id="内部链接"><a href="#内部链接" class="headerlink" title="内部链接"></a>内部链接</h2><p>Obsidian 支持两种笔记间<a href="%E5%86%85%E9%83%A8%E9%93%BE%E6%8E%A5">内部链接</a>的格式：</p>
+<h2 id="内部链接">内部链接</h2>
+<p>Obsidian 支持两种笔记间<a href="内部链接">内部链接</a>的格式：</p>
 <ul>
 <li>Wiki 链接：<code>[[牛顿运动三定律]]</code></li>
 <li>Markdown：<code>[牛顿运动三定律](牛顿运动三定律.md)</code></li>
 </ul>
-<h2 id="外部链接"><a href="#外部链接" class="headerlink" title="外部链接"></a>外部链接</h2><p>如果你想链接到外部 URL，可以用方括号（<code>[ ]</code>）包围链接文本，然后用圆括号（<code>( )</code>）包围 URL 来创建内联链接。</p>
+<h2 id="外部链接">外部链接</h2>
+<p>如果你想链接到外部
+URL，可以用方括号（<code>[ ]</code>）包围链接文本，然后用圆括号（<code>( )</code>）包围
+URL 来创建内联链接。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">Obsidian 帮助</span>](<span class="link">https://help.obsidian.md</span>)</span><br></pre></td></tr></table></figure></div>
-
-<p><a class="link"   target="_blank" rel="noopener" href="https://help.obsidian.md/" >Obsidian 帮助<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<p>你也可以通过链接到 [Obsidian URI](Obsidian URI) 来创建指向其他仓库中文件的外部链接。</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://help.obsidian.md" >Obsidian 帮助<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>你也可以通过链接到 <a href="Obsidian%20URI">Obsidian URI</a>
+来创建指向其他仓库中文件的外部链接。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">笔记</span>](<span class="link">obsidian://open?vault=MainVault&amp;file=Note.md</span>)</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="转义链接中的空格"><a href="#转义链接中的空格" class="headerlink" title="转义链接中的空格"></a>转义链接中的空格</h3><p>如果你的 URL 包含空格，必须将空格替换为 <code>%20</code> 来转义它们。</p>
+<h3 id="转义链接中的空格">转义链接中的空格</h3>
+<p>如果你的 URL 包含空格，必须将空格替换为 <code>%20</code>
+来转义它们。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">我的笔记</span>](<span class="link">obsidian://open?vault=MainVault&amp;file=My%20Note.md</span>)</span><br></pre></td></tr></table></figure></div>
-
 <p>你也可以用尖括号（<code>&lt; &gt;</code>）包裹 URL 来转义。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">我的笔记</span>](<span class="link">&lt;obsidian://open?vault=MainVault&amp;file=My Note.md&gt;</span>)</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="外部图片"><a href="#外部图片" class="headerlink" title="外部图片"></a>外部图片</h2><p>你可以通过在<a href="#%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5">外部链接</a>前添加 <code>!</code> 符号来添加外部 URL 的图片。</p>
+<h2 id="外部图片">外部图片</h2>
+<p>你可以通过在<a href="#外部链接">外部链接</a>前添加 <code>!</code>
+符号来添加外部 URL 的图片。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Engelbart</span>](<span class="link">https://history-computer.com/ModernComputer/Basis/images/Engelbart.jpg</span>)</span><br></pre></td></tr></table></figure></div>
+<figure>
+<img 
 
-<p><img  
                      lazyload
                      src="/images/loading.svg"
                      data-src="https://history-computer.com/ModernComputer/Basis/images/Engelbart.jpg"
-                      alt="Engelbart"
-                ></p>
-<p>你可以通过在链接目标中添加 <code>|640x480</code> 来更改图片尺寸，其中 640 是宽度，480 是高度。</p>
+                     
+alt="Engelbart" 
+                >
+<figcaption aria-hidden="true">Engelbart</figcaption>
+</figure>
+<p>你可以通过在链接目标中添加 <code>|640x480</code> 来更改图片尺寸，其中
+640 是宽度，480 是高度。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Engelbart|100x145</span>](<span class="link">https://history-computer.com/ModernComputer/Basis/images/Engelbart.jpg</span>)</span><br></pre></td></tr></table></figure></div>
-
 <p>如果只指定宽度，图片会按原始宽高比缩放。例如：</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">Engelbart|100</span>](<span class="link">https://history-computer.com/ModernComputer/Basis/images/Engelbart.jpg</span>)</span><br></pre></td></tr></table></figure></div>
-
 <p>提示</p>
-<p>如果你想添加仓库内的图片，也可以<a href="%E6%8F%92%E5%85%A5%E6%96%87%E4%BB%B6#%E5%9C%A8%E7%AC%94%E8%AE%B0%E4%B8%AD%E5%B5%8C%E5%85%A5%E5%9B%BE%E7%89%87">在笔记中嵌入图片</a>。</p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>你可以在文本前添加 <code>&gt;</code> 符号来引用文本。</p>
+<p>如果你想添加仓库内的图片，也可以<a
+href="插入文件#在笔记中嵌入图片">在笔记中嵌入图片</a>。</p>
+<h2 id="引用">引用</h2>
+<p>你可以在文本前添加 <code>&gt;</code> 符号来引用文本。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="quote">&gt; Human beings face ever more complex and urgent problems, and their effectiveness in dealing with these problems is a matter that is critical to the stability and continued progress of society.</span></span><br><span class="line"></span><br><span class="line">\- Doug Engelbart, 1961</span><br></pre></td></tr></table></figure></div>
-
 <blockquote>
-<p>Human beings face ever more complex and urgent problems, and their effectiveness in dealing with these problems is a matter that is critical to the stability and continued progress of society.</p>
+<p>Human beings face ever more complex and urgent problems, and their
+effectiveness in dealing with these problems is a matter that is
+critical to the stability and continued progress of society.</p>
 </blockquote>
 <p>- Doug Engelbart, 1961</p>
 <p>提示</p>
-<p>你可以通过在引用的第一行添加 <code>[!info]</code> 来将引用转换为<a href="%E6%A0%87%E6%B3%A8">标注</a>。</p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>你可以在文本前添加 <code>-</code>、<code>*</code> 或 <code>+</code> 来创建无序列表。</p>
+<p>你可以通过在引用的第一行添加 <code>[!info]</code> 来将引用转换为<a
+href="标注">标注</a>。</p>
+<h2 id="列表">列表</h2>
+<p>你可以在文本前添加 <code>-</code>、<code>*</code> 或 <code>+</code>
+来创建无序列表。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> 第一个列表项</span><br><span class="line"><span class="bullet">-</span> 第二个列表项</span><br><span class="line"><span class="bullet">-</span> 第三个列表项</span><br></pre></td></tr></table></figure></div>
-
 <ul>
 <li>第一个列表项</li>
 <li>第二个列表项</li>
 <li>第三个列表项</li>
 </ul>
-<p>要创建有序列表，每行以数字开头，后跟 <code>.</code> 或 <code>)</code> 符号。</p>
+<p>要创建有序列表，每行以数字开头，后跟 <code>.</code> 或 <code>)</code>
+符号。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一个列表项</span><br><span class="line"><span class="bullet">2.</span> 第二个列表项</span><br><span class="line"><span class="bullet">3.</span> 第三个列表项</span><br></pre></td></tr></table></figure></div>
-
-<ol>
+<ol type="1">
 <li>第一个列表项</li>
 <li>第二个列表项</li>
 <li>第三个列表项</li>
 </ol>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1) 第一个列表项</span><br><span class="line">2) 第二个列表项</span><br><span class="line">3) 第三个列表项</span><br></pre></td></tr></table></figure></div>
-
-<ol>
+<ol type="1">
 <li>第一个列表项</li>
 <li>第二个列表项</li>
 <li>第三个列表项</li>
 </ol>
-<p>你可以使用 <code>Shift+Enter</code> 在有序列表中插入<a href="#%E6%8D%A2%E8%A1%8C">换行</a>而不改变编号。</p>
+<p>你可以使用 <code>Shift+Enter</code> 在有序列表中插入<a
+href="#换行">换行</a>而不改变编号。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一个列表项</span><br><span class="line">   </span><br><span class="line"><span class="bullet">2.</span> 第二个列表项</span><br><span class="line"><span class="bullet">3.</span> 第三个列表项</span><br><span class="line">   </span><br><span class="line"><span class="bullet">4.</span> 第四个列表项</span><br><span class="line"><span class="bullet">5.</span> 第五个列表项</span><br><span class="line"><span class="bullet">6.</span> 第六个列表项</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="任务列表"><a href="#任务列表" class="headerlink" title="任务列表"></a>任务列表</h3><p>要创建任务列表，每个列表项以连字符和空格后跟 <code>[ ]</code> 开头。</p>
+<h3 id="任务列表">任务列表</h3>
+<p>要创建任务列表，每个列表项以连字符和空格后跟 <code>[ ]</code>
+开头。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] 这是一个已完成的任务。</span><br><span class="line"><span class="bullet">-</span> [ ] 这是一个未完成的任务。</span><br></pre></td></tr></table></figure></div>
-
 <ul>
 <li>这是一个已完成的任务。</li>
 <li>这是一个未完成的任务。</li>
@@ -604,102 +651,110 @@
 <p>提示</p>
 <p>你可以在方括号内使用任意字符来标记任务为已完成。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [x] 牛奶</span><br><span class="line"><span class="bullet">-</span> [?] 鸡蛋</span><br><span class="line"><span class="bullet">-</span> [-] 鸡蛋</span><br></pre></td></tr></table></figure></div>
-
 <ul>
 <li>牛奶</li>
 <li>鸡蛋</li>
 <li>鸡蛋</li>
 </ul>
-<h3 id="嵌套列表"><a href="#嵌套列表" class="headerlink" title="嵌套列表"></a>嵌套列表</h3><p>你可以将任何类型的列表——有序、无序或任务列表——嵌套在任何其他类型的列表下。</p>
+<h3 id="嵌套列表">嵌套列表</h3>
+<p>你可以将任何类型的列表——有序、无序或任务列表——嵌套在任何其他类型的列表下。</p>
 <p>要创建嵌套列表，请缩进一个或多个列表项。你可以在嵌套结构中混合使用不同类型的列表：</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1.</span> 第一个列表项</span><br><span class="line"><span class="bullet">   1.</span> 有序嵌套列表项</span><br><span class="line"><span class="bullet">2.</span> 第二个列表项</span><br><span class="line"><span class="bullet">   -</span> 无序嵌套列表项</span><br></pre></td></tr></table></figure></div>
-
-<ol>
-<li>第一个列表项<ol>
+<ol type="1">
+<li>第一个列表项
+<ol type="1">
 <li>有序嵌套列表项</li>
-</ol>
-</li>
-<li>第二个列表项<ul>
+</ol></li>
+<li>第二个列表项
+<ul>
 <li>无序嵌套列表项</li>
-</ul>
-</li>
+</ul></li>
 </ol>
 <p>同样，你可以通过缩进一个或多个列表项来创建嵌套任务列表：</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> [ ] 任务项 1</span><br><span class="line"><span class="bullet">	-</span> [ ] 子任务 1</span><br><span class="line"><span class="bullet">-</span> [ ] 任务项 2</span><br><span class="line"><span class="bullet">	-</span> [ ] 子任务 1</span><br></pre></td></tr></table></figure></div>
-
 <ul>
-<li>任务项 1<ul>
+<li>任务项 1
+<ul>
 <li>子任务 1</li>
-</ul>
-</li>
-<li>任务项 2<ul>
+</ul></li>
+<li>任务项 2
+<ul>
 <li>子任务 1</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>使用 <code>Tab</code> 或 <code>Shift+Tab</code> 来缩进或减少缩进选中的列表项，以便轻松组织它们。</p>
-<h2 id="分隔线"><a href="#分隔线" class="headerlink" title="分隔线"></a>分隔线</h2><p>你可以使用三个或更多的星号 <code>***</code>、连字符 <code>---</code> 或下划线 <code>___</code> 单独占一行来添加水平分隔线。你也可以用空格分隔这些符号。</p>
+<p>使用 <code>Tab</code> 或 <code>Shift+Tab</code>
+来缩进或减少缩进选中的列表项，以便轻松组织它们。</p>
+<h2 id="分隔线">分隔线</h2>
+<p>你可以使用三个或更多的星号 <code>***</code>、连字符 <code>---</code>
+或下划线 <code>___</code>
+单独占一行来添加水平分隔线。你也可以用空格分隔这些符号。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="strong">***</span></span><br><span class="line"><span class="strong">**</span>**</span><br><span class="line"><span class="section">* * *</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line">----</span><br><span class="line"><span class="bullet">-</span> - -</span><br><span class="line"><span class="strong">___</span></span><br><span class="line"><span class="strong">__</span>__</span><br><span class="line">_ _ <span class="emphasis">_</span></span><br></pre></td></tr></table></figure></div>
-
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>你可以将代码格式化为行内代码或独立的代码块。</p>
-<h3 id="行内代码"><a href="#行内代码" class="headerlink" title="行内代码"></a>行内代码</h3><p>你可以使用单个反引号在句子中格式化行内代码。</p>
+<hr />
+<h2 id="代码">代码</h2>
+<p>你可以将代码格式化为行内代码或独立的代码块。</p>
+<h3 id="行内代码">行内代码</h3>
+<p>你可以使用单个反引号在句子中格式化行内代码。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">行中 <span class="code">`反引号`</span> 内的文本将被格式化为代码。</span><br></pre></td></tr></table></figure></div>
-
 <p>行中 <code>反引号</code> 内的文本将被格式化为代码。</p>
-<p>如果你想在行内代码中放置反引号，可以用双反引号包围它，如：行内 <code>包含反引号 </code> 的代码&#96;。</p>
-<h3 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h3><p>要将代码格式化为代码块，请用三个或更多反引号或三个或更多波浪号包围它。</p>
+<p>如果你想在行内代码中放置反引号，可以用双反引号包围它，如：行内
+<code>包含反引号</code> 的代码`。</p>
+<h3 id="代码块">代码块</h3>
+<p>要将代码格式化为代码块，请用三个或更多反引号或三个或更多波浪号包围它。</p>
 <div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">`````</span><br><span class="line">cd ~/Desktop</span><br><span class="line">`````</span><br><span class="line">~~~</span><br><span class="line">cd ~/Desktop</span><br><span class="line">~~~</span><br><span class="line">cd ~/Desktop</span><br></pre></td></tr></table></figure></div>
-
 <p>你也可以使用 <code>Tab</code> 或 4 个空格缩进文本来创建代码块。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Desktop</span><br></pre></td></tr></table></figure></div>
-
 <p>你可以通过在第一组反引号后添加语言代码来为代码块添加语法高亮。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">`````js</span></span><br><span class="line"><span class="code">function fancyAlert(arg) &#123;</span></span><br><span class="line"><span class="code">  if(arg) &#123;</span></span><br><span class="line"><span class="code">    $.facebox(&#123;div:&#x27;#foo&#x27;&#125;)</span></span><br><span class="line"><span class="code">  &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br><span class="line"><span class="code">`````</span></span><br><span class="line">function fancyAlert(arg) &#123;</span><br><span class="line">  if(arg) &#123;</span><br><span class="line"><span class="code">    $.facebox(&#123;div:&#x27;#foo&#x27;&#125;)</span></span><br><span class="line"><span class="code">  &#125;</span></span><br><span class="line"><span class="code">&#125;</span></span><br></pre></td></tr></table></figure></div>
-
-<p>Obsidian 使用 Prism 进行语法高亮。更多信息请参阅 <a class="link"   target="_blank" rel="noopener" href="https://prismjs.com/#supported-languages" >支持的语言<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。</p>
+<p>Obsidian 使用 Prism 进行语法高亮。更多信息请参阅 <a class="link" 
+ target="_blank" rel="noopener" href="https://prismjs.com/#supported-languages" >支持的语言<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>。</p>
 <p>PrismJS 与编辑视图</p>
-<p><a href="%E7%BC%96%E8%BE%91%E4%B8%8E%E9%A2%84%E8%A7%88%E7%AC%94%E8%AE%B0#%E6%BA%90%E7%A0%81%E6%A8%A1%E5%BC%8F">源码模式</a>和<a href="%E7%BC%96%E8%BE%91%E4%B8%8E%E9%A2%84%E8%A7%88%E7%AC%94%E8%AE%B0#%E5%AE%9E%E6%97%B6%E9%A2%84%E8%A7%88">实时预览</a>不支持 PrismJS，可能会以不同方式渲染语法高亮。</p>
-<h4 id="嵌套代码块"><a href="#嵌套代码块" class="headerlink" title="嵌套代码块"></a>嵌套代码块</h4><p>当你需要在一个代码块中包含另一个代码块时（例如，在文档中说明如何使用代码块），你可以为外层代码块使用三个以上的反引号或波浪号。</p>
+<p><a href="编辑与预览笔记#源码模式">源码模式</a>和<a
+href="编辑与预览笔记#实时预览">实时预览</a>不支持
+PrismJS，可能会以不同方式渲染语法高亮。</p>
+<h4 id="嵌套代码块">嵌套代码块</h4>
+<p>当你需要在一个代码块中包含另一个代码块时（例如，在文档中说明如何使用代码块），你可以为外层代码块使用三个以上的反引号或波浪号。</p>
 <p>要嵌套代码块，外层块使用四个或更多反引号（或波浪号），而内层块使用三个：</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">````md</span></span><br><span class="line"><span class="code">以下是如何创建代码块：</span></span><br><span class="line"><span class="code">```js</span></span><br><span class="line"><span class="code">console.log(&quot;Hello world&quot;)</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">````</span></span><br></pre></td></tr></table></figure></div>
-
 <p>你也可以混合使用反引号和波浪号。这在处理生成其他代码块的代码时特别有用：</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">````md</span></span><br><span class="line"><span class="code">```dataviewjs</span></span><br><span class="line"><span class="code">dv.paragraph(`</span></span><br><span class="line"><span class="code">~~~mermaid</span></span><br><span class="line"><span class="code">graph TD</span></span><br><span class="line"><span class="code">    A --&gt; B</span></span><br><span class="line"><span class="code">~~~</span></span><br><span class="line"><span class="code">`)</span></span><br><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code">````</span></span><br></pre></td></tr></table></figure></div>
-
 <p>关键原则是外层代码块必须使用<strong>更多的</strong>围栏字符（反引号或波浪号），或使用不同类型的围栏字符。</p>
-<h2 id="脚注"><a href="#脚注" class="headerlink" title="脚注"></a>脚注</h2><p>你可以使用以下语法为笔记添加脚注[<a href="#fn-1">1]</a>：</p>
+<h2 id="脚注">脚注</h2>
+<p>你可以使用以下语法为笔记添加脚注[<a href="#fn-1">1]</a>：</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">这是一个简单的脚注[^1]。</span><br><span class="line"></span><br><span class="line">[<span class="symbol">^1</span>]: <span class="link">这是引用的文本。</span></span><br><span class="line">[<span class="symbol">^2</span>]: <span class="link">在每个新行的开头添加 2 个空格。</span></span><br><span class="line">  这样你就可以编写跨多行的脚注。</span><br><span class="line">[<span class="symbol">^note</span>]: <span class="link">命名脚注仍然显示为数字，但可以更容易地识别和链接引用。</span></span><br></pre></td></tr></table></figure></div>
-
 <p>你也可以在句子中使用行内脚注。请注意，插入符号位于方括号外面。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你也可以使用行内脚注。^[这是一个行内脚注。]</span><br></pre></td></tr></table></figure></div>
-
 <p>注意</p>
 <p>行内脚注仅在阅读视图中有效，在实时预览中无效。</p>
-<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><p>你可以用 <code>%%</code> 包裹文本来添加注释。注释仅在编辑模式中可见。</p>
+<h2 id="注释">注释</h2>
+<p>你可以用 <code>%%</code>
+包裹文本来添加注释。注释仅在编辑模式中可见。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">这是一个 %%行内%% 注释。</span><br><span class="line"></span><br><span class="line">%%</span><br><span class="line">这是一个块注释。</span><br><span class="line"></span><br><span class="line">块注释可以跨多行。</span><br><span class="line">%%</span><br></pre></td></tr></table></figure></div>
-
-<h2 id="转义-Markdown-语法"><a href="#转义-Markdown-语法" class="headerlink" title="转义 Markdown 语法"></a>转义 Markdown 语法</h2><p>在某些情况下，你可能需要在 Markdown 中显示特殊字符，如 <code>*</code>、<code>_</code> 或 <code>#</code>，而不触发它们的格式化效果。要按字面意思显示这些字符，请在它们前面放置反斜杠（<code>\</code>）。</p>
+<h2 id="转义-markdown-语法">转义 Markdown 语法</h2>
+<p>在某些情况下，你可能需要在 Markdown 中显示特殊字符，如
+<code>*</code>、<code>_</code> 或
+<code>#</code>，而不触发它们的格式化效果。要按字面意思显示这些字符，请在它们前面放置反斜杠（<code>\</code>）。</p>
 <p>常见需要转义的字符</p>
 <ul>
 <li>星号：<code>\*</code></li>
 <li>下划线：<code>\_</code></li>
 <li>井号：<code>\#</code></li>
-<li>反引号：&#96;`&#96;</li>
+<li>反引号：```</li>
 <li>管道符（用于表格）：<code>\|</code></li>
 <li>波浪号：<code>\~</code></li>
 </ul>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\<span class="emphasis">*这段文本不会被斜体化\*</span>。</span><br></pre></td></tr></table></figure></div>
-
 <p><em>这段文本不会被斜体化</em>。</p>
 <p>在使用有序列表时，你可能需要转义数字后面的句点以防止自动列表格式化。将反斜杠（<code>\</code>）放在句点前面，而<strong>不是</strong>数字前面。</p>
 <div class="code-container" data-rel="Md"><figure class="iseeu highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1\. 这不会成为列表项。</span><br></pre></td></tr></table></figure></div>
-
 <p>\1. 这不会成为列表项。</p>
-<h2 id="了解更多"><a href="#了解更多" class="headerlink" title="了解更多"></a>了解更多</h2><p>要了解更多高级格式语法，如表格、图表和数学表达式，请参阅<a href="%E9%AB%98%E7%BA%A7%E6%A0%BC%E5%BC%8F%E8%AF%AD%E6%B3%95">高级格式语法</a>。</p>
-<p>要了解 Obsidian 如何解析 Markdown，请参阅 [Obsidian 风格的 Markdown 语法](Obsidian 风格的 Markdown 语法)。</p>
-<hr>
-<ol>
+<h2 id="了解更多">了解更多</h2>
+<p>要了解更多高级格式语法，如表格、图表和数学表达式，请参阅<a
+href="高级格式语法">高级格式语法</a>。</p>
+<p>要了解 Obsidian 如何解析 Markdown，请参阅 <a
+href="Obsidian%20风格的%20Markdown%20语法">Obsidian 风格的 Markdown
+语法</a>。</p>
+<hr />
+<ol type="1">
 <li>这是一个脚注。<a href="#fnref-1">↩︎</a></li>
 </ol>
 
@@ -845,7 +900,7 @@
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
 		<div class="page-title">md格式样式测试</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD"><span class="nav-text">段落</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%A2%E8%A1%8C"><span class="nav-text">换行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-text">标题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E6%98%AF%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-text">这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E6%98%AF%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-text">这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E6%98%AF%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-text">这是三级标题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E7%B2%97%E3%80%81%E6%96%9C%E4%BD%93%E3%80%81%E9%AB%98%E4%BA%AE"><span class="nav-text">加粗、斜体、高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="nav-text">内部链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="nav-text">外部链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E9%93%BE%E6%8E%A5%E4%B8%AD%E7%9A%84%E7%A9%BA%E6%A0%BC"><span class="nav-text">转义链接中的空格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E5%9B%BE%E7%89%87"><span class="nav-text">外部图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8"><span class="nav-text">任务列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8"><span class="nav-text">嵌套列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%9A%94%E7%BA%BF"><span class="nav-text">分隔线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="nav-text">行内代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-text">代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%B3%A8"><span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89-Markdown-%E8%AF%AD%E6%B3%95"><span class="nav-text">转义 Markdown 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A"><span class="nav-text">了解更多</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AE%B5%E8%90%BD"><span class="nav-text">段落</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8D%A2%E8%A1%8C"><span class="nav-text">换行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%87%E9%A2%98"><span class="nav-text">标题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%99%E6%98%AF%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-text">这是一级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E6%98%AF%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-text">这是二级标题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E6%98%AF%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="nav-text">这是三级标题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E7%B2%97%E6%96%9C%E4%BD%93%E9%AB%98%E4%BA%AE"><span class="nav-text">加粗、斜体、高亮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%85%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="nav-text">内部链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E9%93%BE%E6%8E%A5"><span class="nav-text">外部链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89%E9%93%BE%E6%8E%A5%E4%B8%AD%E7%9A%84%E7%A9%BA%E6%A0%BC"><span class="nav-text">转义链接中的空格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%96%E9%83%A8%E5%9B%BE%E7%89%87"><span class="nav-text">外部图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%97%E8%A1%A8"><span class="nav-text">列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E5%8A%A1%E5%88%97%E8%A1%A8"><span class="nav-text">任务列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8"><span class="nav-text">嵌套列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E9%9A%94%E7%BA%BF"><span class="nav-text">分隔线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%8C%E5%86%85%E4%BB%A3%E7%A0%81"><span class="nav-text">行内代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-text">代码块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%84%9A%E6%B3%A8"><span class="nav-text">脚注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BD%AC%E4%B9%89-markdown-%E8%AF%AD%E6%B3%95"><span class="nav-text">转义 Markdown 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E6%9B%B4%E5%A4%9A"><span class="nav-text">了解更多</span></a></li></ol>
 
 	</div>
 </div>
