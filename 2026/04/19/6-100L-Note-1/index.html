@@ -1,0 +1,2857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    
+    <meta name="author" content="Waldeinsamkeit">
+    
+    <!-- Completely eliminate flash of wrong theme -->
+    <script>
+        (function() {
+            const THEME_KEY = "REDEFINE-THEME-STATUS";
+            const DARK = "dark", LIGHT = "light";
+            
+            // Get preferred theme
+            function getTheme() {
+                try {
+                    const saved = localStorage.getItem(THEME_KEY);
+                    if (saved) {
+                        const { isDark } = JSON.parse(saved);
+                        return isDark ? DARK : LIGHT;
+                    }
+                } catch (e) {}
+                
+                return matchMedia("(prefers-color-scheme: dark)").matches ? DARK : LIGHT;
+            }
+            
+            // Apply theme to document
+            function applyTheme(theme) {
+                const isDark = theme === DARK;
+                const root = document.documentElement;
+                
+                // Set classes for compatibility
+                root.classList.add(theme);
+                root.classList.remove(isDark ? LIGHT : DARK);
+                root.style.colorScheme = theme;
+            }
+            
+            // Initial application
+            const theme = getTheme();
+            applyTheme(theme);
+            
+            // Listen for system preference changes
+            matchMedia("(prefers-color-scheme: dark)").addEventListener("change", ({ matches }) => {
+                // Only update if using system preference (no localStorage entry)
+                if (!localStorage.getItem(THEME_KEY)) {
+                    applyTheme(matches ? DARK : LIGHT);
+                }
+            });
+            
+            // Set body classes ASAP (before DOMContentLoaded)
+            (function() {
+                const addBodyClass = () => {
+                    const b = document.body;
+                    if (!b) return false;
+                    b.classList.add(theme + "-mode");
+                    return true;
+                };
+
+                // Try immediately
+                if (addBodyClass()) return;
+
+                // Observe until body exists
+                const mo = new MutationObserver(() => {
+                    if (addBodyClass()) mo.disconnect();
+                });
+                mo.observe(document.documentElement, { childList: true, subtree: true });
+            })();
+        })();
+    </script>
+    
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/2026/04/19/6-100l-note-1/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+        
+        <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="6.100L Note - 1">
+<meta property="og:url" content="http://example.com/2026/04/19/6-100L-Note-1/index.html">
+<meta property="og:site_name" content="Async Garden">
+<meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/images/redefine-og.webp">
+<meta property="article:published_time" content="2026-04-19T13:26:14.000Z">
+<meta property="article:modified_time" content="2026-04-19T15:56:42.772Z">
+<meta property="article:author" content="Waldeinsamkeit">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/redefine-og.webp">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            6.100L Note - 1 | A salty fish
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"zh-CN","path":"search.json"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"vs2015"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":false,"custom_message":null},"side_tools":{"gear_rotation":true,"auto_expand":false},"open_graph":{"enable":true,"image":"/images/redefine-og.webp","description":"Hexo Theme Redefine, Redefine Your Hexo Journey."},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Hi!","subtitle":{"text":["缓慢装修中..."],"hitokoto":{"enable":false,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":[{"icon":"fa-brands fa-github","url":null},{"icon":"fa-brands fa-twitter","url":null},{"icon":"fa-solid fa-at","url":"you@example.com"},{"icon":"fa-brands fa-telegram","url":null},{"icon":"/images/custom-icon.svg","url":null}],"qrs":[{"icon":"fa-brands fa-weixin","qr":null},{"icon":"/images/custom-icon.svg","qr":null}]}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"11.4.1","theme":{"light":"default","dark":"dark"}}},"version":"2.9.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"About":{"icon":"fa-regular fa-user","submenus":{"GitHub":"https://github.com/Waldeinsamkeit-GitHub/Waldeinsamkeit-GitHub.github.io"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur","masonry":{"batch_size":12,"initial_batch_size":24}},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footer":{"runtime":true,"icon":"<i class=\"fa-solid fa-fish\"></i>","start":"2026/4/6 18:09:40","statistics":true,"customize":null,"icp":{"enable":false,"number":null,"url":null}},"footerStart":"2026/4/6 18:09:40","mermaid":{"style":{"light":"default","dark":"dark"}}};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.i18n = {"search":"站内搜索您需要的内容...","toc":"目录","prev":"上一页","next":"下一页","prev_posts":"上一篇","next_posts":"下一篇","page":"第 %d 页","recent_posts":"最新文章","share":"分享","powered_by":"由 %s 驱动","theme":"主题","rss_feed":"RSS Feed","category":"分类","categories":"分类","tag":"标签","tags":"标签","post":"文章","posts":"文章","tagcloud":"标签云","comment":"评论","comments":"评论","top":"置顶","sticky":"置顶","go-back-home":"回到首页","masonry_loading":"照片加载中...","image_viewer":"图片查看器","close":"关闭","exif":{"title":"EXIF","cards":{"camera":"相机","lens":"镜头","exposure":"曝光","other":"其他"},"fields":{"make":"品牌","model":"机型","date_taken":"拍摄时间","lens_model":"镜头","focal_length":"焦距","focus_mode":"对焦模式","shutter":"快门","aperture":"光圈","iso":"感光度","exposure_program":"曝光程序","exposure_compensation":"曝光补偿","metering_mode":"测光模式","flash":"闪光灯","white_balance":"白平衡","latitude":"纬度","longitude":"经度","altitude":"海拔"},"status":{"loading":"加载中...","no_exif":"无 EXIF 信息","library_missing":"EXIF 库未加载","image_source_missing":"图片地址不可用","unavailable":"EXIF 不可用（可能被 CORS 阻止或缺少元数据）","flag_unavailable":"EXIF 不可用"}},"home":"首页","archive":"归档","archives":"归档","about":"关于","links":"链接","link":"链接","friends":"友情链接","friend":"友情链接","timeline":"时间轴","shuoshuo":"说说","bookmarks":"书签","site_uv":"访问人数","site_pv":"总访问量","read_more":"阅读全文","wordcount":"字","min2read":"分钟","changelog":"更新日志","status":"状态","runtime":"博客已运行","days":"天","hours":"小时","minutes":"分钟","seconds":"秒","optimized_by":"并由 Evan 进行优化","rights":"版权所有","site_posts":"共撰写了 %s 篇文章","site_wordcount":"共 %s 字","copyright":{"title":"标题","author":"作者","link":"链接","create_time":"创建于","update_time":"更新于","license_title":"版权声明","license_content":"本文章采用 %s 进行许可。","all_rights_reserved":"版权所有 &#169 %s，禁止转载。","public_domain":"本文为公有领域作品，可自由转载、引用。"},"ago":{"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"},"create_time":"创建","update_time":"更新","expired":"这篇文章最后更新于 %s 天前，内容可能已经过时。"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+	<div class="progress-bar-container">
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                A salty fish
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/Waldeinsamkeit-GitHub/Waldeinsamkeit-GitHub.github.io">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/Waldeinsamkeit-GitHub/Waldeinsamkeit-GitHub.github.io">GITHUB</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">10</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">6.100L Note - 1</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] shrink-0 rounded-medium border border-border-color p-px">
+				<img src="/images/redefine-avatar.svg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">Waldeinsamkeit</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv2</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2026-04-19 21:26:14</span>
+        <span class="mobile">2026-04-19 21:26:14</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2026-04-19 23:56:42</span>
+            <span class="mobile">2026-04-19 23:56:42</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="lecture-1-introduction">Lecture 1: Introduction</h2>
+<h3 id="一计算机与计算思维">一、计算机与计算思维</h3>
+<h4 id="陈述性知识-vs.-命令性知识">1. 1 陈述性知识 vs. 命令性知识</h4>
+<ul>
+<li><strong>陈述性知识（Declarative
+Knowledge）</strong>：陈述事实（例如： = y y y =
+x）。计算机无法直接处理此类描述。</li>
+<li><strong>命令性知识（Imperative Knowledge）</strong>：操作方法/食谱
+(Recipe)。<strong>编程的本质就是给计算机写食谱</strong>。</li>
+</ul>
+<h4 id="什么是算法algorithm">1. 2 什么是算法（Algorithm）？</h4>
+<p>算法是一套包含以下要素的指令序列：</p>
+<ol type="1">
+<li><strong>步骤序列</strong>：1, 2, 3…</li>
+<li><strong>控制流</strong>：判断（如果… 否则…）与循环（重复…）。</li>
+<li><strong>终止条件</strong>：何时停止（例如：结果足够接近）。</li>
+</ol>
+<blockquote>
+<p><strong>核心思想</strong>：计算机是<strong>笨拙但极快</strong>的机器。它只擅长两件事：<strong>存储海量数据</strong>和<strong>极快地执行算术运算</strong>。它<strong>只会严格按照你给的指令执行</strong>，不会自行做出判断。</p>
+</blockquote>
+<h4 id="编程语言发展简史">1. 3 编程语言发展简史</h4>
+<ul>
+<li><strong>固定程序计算机</strong>：操作无法存储复用（如计算器）。</li>
+<li><strong>存储程序计算机</strong>：指令作为数据存储，由解释器执行。</li>
+<li><strong>图灵机理论</strong>：任何可计算的问题在一种语言中能实现，在另一种语言中也能实现。Python
+提供了更友好的<strong>原语（Primitives）</strong>
+来避免直接操作底层硬件。</li>
+</ul>
+<h3 id="二python-基础语法与对象">二、Python 基础语法与对象</h3>
+<h4 id="语言的结构类比">2. 1 语言的结构类比</h4>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 39%" />
+<col style="width: 46%" />
+</colgroup>
+<thead>
+<tr>
+<th>层次</th>
+<th>英语类比</th>
+<th>Python 编程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>原语</strong></td>
+<td>单词/字母</td>
+<td>数字、字符串、布尔值、运算符</td>
+</tr>
+<tr>
+<td><strong>语法</strong></td>
+<td>主谓宾 (Cat eats fish)</td>
+<td><code>object operator object</code> (如 <code>"hi" * 5</code>)</td>
+</tr>
+<tr>
+<td><strong>静态语义</strong></td>
+<td>“I are hungry” (语法对，语义错)</td>
+<td><code>"hi" + 5</code> (Python 无法处理字符串加数字)</td>
+</tr>
+<tr>
+<td><strong>语义</strong></td>
+<td>可能歧义 (Chicken is ready to eat)</td>
+<td><strong>仅有一种含义</strong>，严格按照指令执行</td>
+</tr>
+</tbody>
+</table>
+<h4 id="对象objects与-类型types">2. 2 对象（Objects）与
+类型（Types）</h4>
+<p><strong>核心原则</strong>：程序就是创建对象并操作对象。</p>
+<ul>
+<li><p>类型的作用</p>
+<p>：定义该对象</p>
+<p>允许执行的操作</p>
+<p>。</p>
+<ul>
+<li>数字（<code>int</code>,
+<code>float</code>）：加减乘除、幂运算。</li>
+<li>字符串（<code>str</code>）：索引、切片、长度计算。</li>
+</ul></li>
+</ul>
+<h4 id="python-中的标量对象scalar-types">2. 3 Python
+中的标量对象（Scalar Types）</h4>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 19%" />
+<col style="width: 48%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr>
+<th>类型</th>
+<th>描述</th>
+<th>示例</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>int</code></strong></td>
+<td>整数</td>
+<td><code>5</code>, <code>0</code>, <code>-100</code></td>
+<td>无限</td>
+</tr>
+<tr>
+<td><strong><code>float</code></strong></td>
+<td>实数 (浮点数)</td>
+<td><code>3.27</code>, <code>2.0</code>, <code>-3.14</code></td>
+<td>无限</td>
+</tr>
+<tr>
+<td><strong><code>bool</code></strong></td>
+<td>布尔值</td>
+<td><code>True</code>, <code>False</code>
+(<strong>首字母大写</strong>)</td>
+<td>仅 2 个</td>
+</tr>
+<tr>
+<td><strong><code>NoneType</code></strong></td>
+<td>空值</td>
+<td><code>None</code></td>
+<td>仅 1 个</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>查看类型</strong>：使用 <code>type()</code> 命令。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">type</span>(<span class="number">7</span>)      <span class="comment"># &lt;class &#x27;int&#x27;&gt;</span></span><br><span class="line"><span class="built_in">type</span>(<span class="number">0.0</span>)    <span class="comment"># &lt;class &#x27;float&#x27;&gt;</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h4 id="类型转换casting">2. 4 类型转换（Casting）</h4>
+<p>将一个对象转换为另一种类型（实际上是<strong>创建新对象</strong>，原对象不变）。</p>
+<ul>
+<li><code>float(3)</code> -&gt; <code>3.0</code></li>
+<li><code>int(5.9)</code> -&gt; <code>5</code>
+（截断小数部分，<strong>不四舍五入</strong>）</li>
+<li><code>round(5.9)</code> -&gt; <code>6</code> （注意：结果类型是
+<code>int</code>）</li>
+</ul>
+<h3 id="三表达式与运算符">三、表达式与运算符</h3>
+<h4 id="表达式求值">3. 1 表达式求值</h4>
+<ul>
+<li><p><strong>语法</strong>:
+<code>&lt;object&gt; &lt;operator&gt; &lt;object&gt;</code></p></li>
+<li><p><strong>执行逻辑</strong>: Python
+<strong>计算表达式</strong>得出<strong>单一值</strong>，然后<strong>仅存储该结果值</strong>，不存储表达式本身。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span> + <span class="number">2</span>        <span class="comment"># 计算结果为 5</span></span><br><span class="line"><span class="built_in">type</span>(<span class="number">3</span>+<span class="number">2</span>)    <span class="comment"># 计算结果为 &lt;class &#x27;int&#x27;&gt;</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h4 id="算术运算符与规则">3. 2 算术运算符与规则</h4>
+<table>
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 17%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr>
+<th>运算符</th>
+<th>操作</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>+</code>, <code>-</code>, <code>*</code></td>
+<td>加、减、乘</td>
+<td>若两操作数均为 <code>int</code>，结果为 <code>int</code>；若有
+<code>float</code>，结果为 <code>float</code></td>
+</tr>
+<tr>
+<td><code>/</code></td>
+<td>除法</td>
+<td><strong>结果永远是 <code>float</code></strong> (例: <code>9/3</code>
+-&gt; <code>3.0</code>)</td>
+</tr>
+<tr>
+<td><code>//</code></td>
+<td>整除 (向下取整)</td>
+<td><code>5 // 3</code> -&gt; <code>1</code></td>
+</tr>
+<tr>
+<td><code>%</code></td>
+<td>取余 (模运算)</td>
+<td><code>5 % 3</code> -&gt; <code>2</code></td>
+</tr>
+<tr>
+<td><code>**</code></td>
+<td>幂运算</td>
+<td><code>2 ** 3</code> -&gt; <code>8</code>, <code>2 ** 3.0</code>
+-&gt; <code>8.0</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="运算符优先级">3. 3 运算符优先级</h4>
+<ol type="1">
+<li><code>**</code> (幂运算)</li>
+<li><code>*</code>, <code>/</code>, <code>//</code>, <code>%</code></li>
+<li><code>+</code>, <code>-</code></li>
+</ol>
+<ul>
+<li>建议：使用括号 <code>()</code> 明确优先级，提高可读性。</li>
+</ul>
+<h3 id="四变量与赋值">四、变量与赋值</h3>
+<h4 id="计算机科学中的变量-vs.-数学中的变量">4. 1 计算机科学中的变量
+vs. 数学中的变量</h4>
+<ul>
+<li><strong>数学</strong>：陈述性，代表关系 (如 x x = y)。</li>
+<li><strong>计算机科学</strong>：<strong>命令性</strong>，<strong>绑定
+(Binding)</strong> 关系。格式： <strong>变量名 = 值</strong>。</li>
+</ul>
+<h4 id="赋值语句的执行规则">4. 2 赋值语句的执行规则</h4>
+<p><strong>步骤</strong>：<strong>先看右边</strong> -&gt;
+计算表达式得出值 -&gt; <strong>再将值绑定给左边的名字</strong>。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例</span></span><br><span class="line">pi = <span class="number">3.14159</span>          <span class="comment"># pi 绑定到浮点数</span></span><br><span class="line">radius = <span class="number">2.2</span>          <span class="comment"># radius 绑定到 2.2</span></span><br><span class="line">area = pi * (radius ** <span class="number">2</span>) <span class="comment"># 先取出 pi 和 radius 的值计算，结果再绑定给 area</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="变量的重新绑定-rebinding">4. 3 变量的重新绑定 (Rebinding)</h4>
+<ul>
+<li><p>一个变量名<strong>在同一时刻只能指向一个值</strong>。</p></li>
+<li><p>重新赋值会<strong>丢失</strong>对旧值的绑定。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">radius = <span class="number">2.2</span></span><br><span class="line">radius = radius + <span class="number">1</span>   <span class="comment"># 此时 radius 指向 3.2，旧值 2.2 无法再通过 radius 访问</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p><strong>重要警示</strong>:
+改变变量值<strong>不会</strong>自动更新之前依赖该变量的计算结果。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">1</span></span><br><span class="line">y = x       <span class="comment"># y 得到的是当时 x 的值 1，而不是指向 x 的指针</span></span><br><span class="line">x = <span class="number">2</span>       <span class="comment"># 此时 y 仍然是 1</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h4 id="变量命名规则与代码风格">4. 4 变量命名规则与代码风格</h4>
+<ul>
+<li><p><strong>规则</strong>：不能以数字开头，不能包含空格或特殊运算符（如
+<code>*</code>, <code>+</code>）。</p></li>
+<li><dl>
+<dt>风格建议 (PEP 8 精神)</dt>
+<dd>
+
+</dd>
+</dl>
+<ul>
+<li><p>使用有意义的名称 (<code>area</code>, <code>circumference</code>
+优于 <code>a</code>, <code>c</code>)。</p></li>
+<li><dl>
+<dt>注释 (Comments)</dt>
+<dd>
+<p>以</p>
+</dd>
+</dl>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#</span><br></pre></td></tr></table></figure></div>
+<p>开头。</p>
+<ul>
+<li><strong>好的注释</strong>：解释 <strong>Why</strong>
+(为什么要做这一步计算)。</li>
+<li><strong>坏的注释</strong>：复述 <strong>What</strong>
+(重复代码本身的意思，如 <code># add x and y</code>)。</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="五调试工具python-tutor">五、调试工具：Python Tutor</h3>
+<p><a class="link" 
+ target="_blank" rel="noopener" href="https://pythontutor.com/visualize.html#mode=edit" >链接<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<ul>
+<li><p><strong>用途</strong>:
+可视化代码执行过程，逐步查看变量绑定的变化。</p></li>
+<li><dl>
+<dt>使用场景</dt>
+<dd>
+
+</dd>
+</dl>
+<ul>
+<li>不理解变量如何交换 (Swap)。</li>
+<li>不理解循环或函数调用时的内存状态。</li>
+<li>调试 Finger Exercises 和 Problem Sets。</li>
+</ul></li>
+</ul>
+<h3 id="六本讲核心总结">六、本讲核心总结</h3>
+<ol type="1">
+<li><strong>对象与类型</strong>：一切皆对象，类型决定操作。</li>
+<li><strong>表达式求值</strong>：表达式计算为单一值。</li>
+<li><strong>赋值 (=)</strong>
+：不是数学等号，而是<strong>绑定名字到值</strong>的动作。</li>
+<li><strong>顺序执行</strong>:
+程序从上到下逐行执行，不会自动修正逻辑错误或更新依赖关系。</li>
+<li><strong>黄金法则</strong>：<strong>计算机只会严格执行你告诉它的指令，仅此而已。</strong></li>
+</ol>
+<hr />
+<h2 id="lecture-2-strings-inputoutput-branching">Lecture 2: Strings,
+Input/Output, Branching</h2>
+<h3 id="一字符串-strings">一、字符串 (Strings)</h3>
+<p>字符串是 Python
+中的一种对象类型，用于表示<strong>字符序列</strong>。</p>
+<h4 id="字符串的基本操作">1. 1 字符串的基本操作</h4>
+<table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 11%" />
+<col style="width: 18%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr>
+<th>操作</th>
+<th>运算符/函数</th>
+<th>示例</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>拼接 (Concatenation)</strong></td>
+<td><code>+</code></td>
+<td><code>"me" + "myself"</code></td>
+<td><code>"memyself"</code>
+(注意：<strong>不会自动添加空格</strong>)</td>
+</tr>
+<tr>
+<td><strong>重复 (Repetition)</strong></td>
+<td><code>*</code></td>
+<td><code>"me" * 3</code></td>
+<td><code>"mememe"</code></td>
+</tr>
+<tr>
+<td><strong>获取长度</strong></td>
+<td><code>len()</code></td>
+<td><code>len("abc")</code></td>
+<td><code>3</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>:</p>
+<ul>
+<li><code>+</code>
+只能用于字符串与字符串之间，不能直接拼接字符串和数字（会引发
+<code>TypeError</code>）。</li>
+<li>若需拼接数字，需先进行类型转换：<code>str(3)</code>。</li>
+</ul>
+<p>拓展 - 关于字符串</p>
+<p>字符串既可以用双引号，也可以用单引号、三引号创建，只要能配得上对就行。三引号常用于多行字符串或文档注释：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s1 = <span class="string">&#x27;hello&#x27;</span></span><br><span class="line">s2 = <span class="string">&quot;world&quot;</span></span><br><span class="line">s3 = <span class="string">&#x27;&#x27;&#x27;多行</span></span><br><span class="line"><span class="string">字符串&#x27;&#x27;&#x27;</span></span><br><span class="line">s4 = <span class="string">&quot;&quot;&quot;这也是</span></span><br><span class="line"><span class="string">多行字符串&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure></div>
+<p>其他拓展内容</p>
+<p><a class="link" 
+ target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.14/tutorial/introduction.html#text" >Python
+文档/Python 速览/Python 用作计算器/文本<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h4 id="字符串索引-indexing">1. 2 字符串索引 (Indexing)</h4>
+<p>通过<strong>方括号 <code>[]</code></strong>
+可以提取字符串中的单个字符。</p>
+<ul>
+<li><strong>索引从 0 开始</strong>（计算机科学惯例）。</li>
+<li><strong>负数索引</strong>表示从字符串末尾开始倒数（<code>-1</code>
+代表最后一个字符）。</li>
+</ul>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;abc&quot;</span></span><br><span class="line">s[<span class="number">0</span>]   <span class="comment"># &#x27;a&#x27;</span></span><br><span class="line">s[<span class="number">1</span>]   <span class="comment"># &#x27;b&#x27;</span></span><br><span class="line">s[<span class="number">2</span>]   <span class="comment"># &#x27;c&#x27;</span></span><br><span class="line">s[-<span class="number">1</span>]  <span class="comment"># &#x27;c&#x27; (最后一个字符)</span></span><br><span class="line">s[-<span class="number">2</span>]  <span class="comment"># &#x27;b&#x27;</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><strong>索引越界</strong>：访问不存在的索引（如
+<code>s[3]</code>）会引发 <code>IndexError</code>。</li>
+</ul>
+<h4 id="字符串切片-slicing">1. 3 字符串切片 (Slicing)</h4>
+<p>用于获取<strong>子字符串
+(Substring)</strong>，语法为：<code>[start : stop : step]</code>。</p>
+<ul>
+<li><strong>start</strong>: 起始索引（包含）。</li>
+<li><strong>stop</strong>: 结束索引（<strong>不包含</strong>）。</li>
+<li><strong>step</strong>: 步长（默认为 <code>1</code>，可省略）。</li>
+</ul>
+<p><strong>规则总结</strong>:</p>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 34%" />
+<col style="width: 38%" />
+<col style="width: 14%" />
+</colgroup>
+<thead>
+<tr>
+<th>切片写法</th>
+<th>含义</th>
+<th>示例 (<code>s = "abcdefgh"</code>)</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s[3:6]</code></td>
+<td>索引 3 到 6（不含 6），步长 1</td>
+<td>从 <code>d</code> 到 <code>f</code></td>
+<td><code>"def"</code></td>
+</tr>
+<tr>
+<td><code>s[3:6:2]</code></td>
+<td>索引 3 到 6，步长 2</td>
+<td><code>d</code>，跳过 <code>e</code>，取 <code>f</code></td>
+<td><code>"df"</code></td>
+</tr>
+<tr>
+<td><code>s[4:1:-2]</code></td>
+<td>从右向左，步长 -2</td>
+<td>从 <code>e</code> 到索引 1 之前，取
+<code>e</code>、<code>c</code></td>
+<td><code>"ec"</code></td>
+</tr>
+<tr>
+<td><code>s[::-1]</code></td>
+<td>省略起止，步长 -1</td>
+<td>反转整个字符串</td>
+<td><code>"hgfedcba"</code></td>
+</tr>
+<tr>
+<td><code>s[:]</code></td>
+<td>省略全部</td>
+<td>复制整个字符串</td>
+<td><code>"abcdefgh"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>练习示例</strong>:</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;ABC d3f ghi&quot;</span>   <span class="comment"># 注意包含空格</span></span><br><span class="line"><span class="comment"># 索引: 0:A, 1:B, 2:C, 3:空格, 4:d, 5:3, 6:f, 7:空格, 8:g, 9:h, 10:i</span></span><br><span class="line"></span><br><span class="line">s[<span class="number">3</span>:<span class="built_in">len</span>(s)-<span class="number">1</span>]   <span class="comment"># len(s)=11, 所以是 s[3:10] -&gt; 空格 到 h: &quot; d3f gh&quot;</span></span><br><span class="line">s[<span class="number">4</span>:<span class="number">0</span>:-<span class="number">1</span>]       <span class="comment"># 从索引4(d)向左到索引0(A，不含): &quot;d C B&quot; (反向)</span></span><br><span class="line">s[<span class="number">6</span>:<span class="number">3</span>]          <span class="comment"># 起始在右，向左且步长默认为1，结果为空字符串 &quot;&quot;</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="字符串的不可变性-immutability">1. 4 字符串的不可变性
+(Immutability)</h4>
+<ul>
+<li><strong>定义</strong>:
+字符串一旦创建，<strong>无法在原处修改</strong>。</li>
+<li><strong>后果</strong>:
+任何试图“修改”字符串的操作，实际上都是<strong>创建了一个新的字符串对象</strong>。</li>
+<li><strong>错误示例</strong>: <code>s = "car"; s[0] = "b"</code> ❌
+会报错。</li>
+<li><strong>正确做法</strong>: 通过切片和拼接生成新字符串，如
+<code>"b" + s[1:]</code> 得到 <code>"bar"</code>，但 <code>s</code>
+仍指向 <code>"car"</code> 除非重新赋值。</li>
+</ul>
+<h3 id="二输入与输出-input-output">二、输入与输出 (Input &amp;
+Output)</h3>
+<h4 id="输出-print-函数">2. 1 输出: <code>print()</code> 函数</h4>
+<ul>
+<li><strong>作用</strong>: 在控制台显式地向用户展示结果。</li>
+<li><strong>与 Shell 直接输入的区别</strong>: 在 <code>.py</code>
+文件中编写表达式不会自动显示结果，必须使用 <code>print()</code>。</li>
+</ul>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;abc&quot;</span></span><br><span class="line"><span class="built_in">len</span>(s)          <span class="comment"># 在文件中运行无显示</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(s))   <span class="comment"># 输出: 3</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>打印多个对象</strong>:</p>
+<ul>
+<li><p>使用逗号 <code>,</code>
+分隔，默认输出会以<strong>空格</strong>隔开。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The&quot;</span>, <span class="number">3</span>, <span class="string">&quot;musketeers&quot;</span>)  <span class="comment"># 输出: The 3 musketeers</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>若不想有空格，需手动拼接字符串（注意类型转换）：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;The&quot;</span> + <span class="built_in">str</span>(<span class="number">3</span>) + <span class="string">&quot;musketeers&quot;</span>)  <span class="comment"># 输出: The3musketeers</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<p>拓展内容</p>
+<p><a class="link" 
+ target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.14/library/functions.html#print" >Python
+文档/内置函数/ print( )<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h4 id="输入-input-函数">2. 2 输入: <code>input()</code> 函数</h4>
+<ul>
+<li><p><strong>作用</strong>: 从用户处获取输入。</p></li>
+<li><dl>
+<dt>工作机制</dt>
+<dd>
+
+</dd>
+</dl>
+<ol type="1">
+<li>显示括号内的提示字符串。</li>
+<li><strong>等待</strong>用户输入并按下回车。</li>
+<li><strong>无论用户输入什么，返回的值永远是字符串类型
+(<code>str</code>)</strong>。</li>
+</ol></li>
+</ul>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text = <span class="built_in">input</span>(<span class="string">&quot;Type anything: &quot;</span>)  <span class="comment"># 用户输入 howdy</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">5</span> * text)                  <span class="comment"># 输出: howdyhowdyhowdyhowdyhowdy (字符串重复)</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>获取数字输入</strong>: 必须使用类型转换函数
+<code>int()</code> 或 <code>float()</code>。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 错误示例：直接做数学运算</span></span><br><span class="line">num1 = <span class="built_in">input</span>(<span class="string">&quot;Type a number: &quot;</span>)  <span class="comment"># 用户输入 3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">5</span> * num1)                  <span class="comment"># 输出: 33333 (字符串重复)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 正确示例：</span></span><br><span class="line">num2 = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;Type a number: &quot;</span>))  <span class="comment"># 用户输入 3，转换为整数 3</span></span><br><span class="line"><span class="built_in">print</span>(<span class="number">5</span> * num2)                       <span class="comment"># 输出: 15 (数学乘法)</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="格式化字符串-f-string">2. 3 格式化字符串 (f-string)</h4>
+<p><strong>f-string</strong> 是 Python 3.6+
+提供的更优雅的字符串格式化方法。</p>
+<ul>
+<li><strong>语法</strong>: 在字符串前加 <code>f</code>，使用花括号
+<code>&#123;&#125;</code> 包裹表达式。</li>
+<li><strong>优点</strong>:
+无需显式转换类型，无需处理加号拼接的空格问题。</li>
+</ul>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">3</span></span><br><span class="line">fraction = <span class="number">0.5</span></span><br><span class="line"><span class="comment"># 旧方法（麻烦且容易多空格）</span></span><br><span class="line"><span class="built_in">print</span>(num * fraction, <span class="string">&quot;% of&quot;</span>, num)  </span><br><span class="line"></span><br><span class="line"><span class="comment"># f-string 方法（直观准确）</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;num * fraction&#125;</span>% of <span class="subst">&#123;num&#125;</span>&quot;</span>)  <span class="comment"># 输出: 1.5% of 3</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>练习：交互式程序</strong> 要求：输入动词，输出
+<code>I can [verb] better than you</code>，并在下一行输出该动词 5
+次。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">verb = <span class="built_in">input</span>(<span class="string">&quot;Enter a verb: &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;I can&quot;</span>, verb, <span class="string">&quot;better than you&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>((verb + <span class="string">&quot; &quot;</span>) * <span class="number">5</span>)  <span class="comment"># 拼接空格后重复，注意末尾会多一个空格</span></span><br></pre></td></tr></table></figure></div>
+<p>拓展内容</p>
+<p><a class="link" 
+ target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.14/reference/lexical_analysis.html#formatted-string-literals" >Python
+文档/词法分析/f-string<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="三布尔值与条件分支-branching">三、布尔值与条件分支
+(Branching)</h3>
+<h4 id="布尔表达式-boolean-expressions">3. 1 布尔表达式 (Boolean
+Expressions)</h4>
+<p>布尔值是用于<strong>判断真伪</strong>的数据类型，只有
+<code>True</code> 和 <code>False</code> 两个值。</p>
+<p><strong>比较运算符</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>含义</th>
+<th>示例 (<code>2 &lt; 3</code> -&gt; <code>True</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>==</code></td>
+<td>等于</td>
+<td><code>2 == 3</code> -&gt; <code>False</code></td>
+</tr>
+<tr>
+<td><code>!=</code></td>
+<td>不等于</td>
+<td><code>2 != 3</code> -&gt; <code>True</code></td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>小于</td>
+<td><code>3 &lt; 2</code> -&gt; <code>False</code></td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>大于</td>
+<td><code>3 &gt; 2</code> -&gt; <code>True</code></td>
+</tr>
+<tr>
+<td><code>&lt;=</code></td>
+<td>小于等于</td>
+<td><code>2 &lt;= 2</code> -&gt; <code>True</code></td>
+</tr>
+<tr>
+<td><code>&gt;=</code></td>
+<td>大于等于</td>
+<td><code>3 &gt;= 4</code> -&gt; <code>False</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>逻辑运算符</strong> (用于组合布尔表达式):</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>含义</th>
+<th>真值表关键点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>and</code></td>
+<td>与</td>
+<td><strong>两者皆为 True 才为 True</strong></td>
+</tr>
+<tr>
+<td><code>or</code></td>
+<td>或</td>
+<td><strong>至少一个为 True 即为 True</strong></td>
+</tr>
+<tr>
+<td><code>not</code></td>
+<td>非</td>
+<td>取反</td>
+</tr>
+</tbody>
+</table>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例</span></span><br><span class="line">pset_time = <span class="number">15</span></span><br><span class="line">sleep_time = <span class="number">8</span></span><br><span class="line"><span class="built_in">print</span>(sleep_time &gt; pset_time)  <span class="comment"># False</span></span><br><span class="line"></span><br><span class="line">derive = <span class="literal">True</span></span><br><span class="line">drink = <span class="literal">False</span></span><br><span class="line"><span class="built_in">print</span>(drink <span class="keyword">and</span> derive)        <span class="comment"># False</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="条件语句-if-elif-else">3. 2 条件语句: <code>if</code>,
+<code>elif</code>, <code>else</code></h4>
+<p>用于在程序中创建<strong>决策点</strong>，改变代码的线性执行流程。</p>
+<p><strong>结构语法</strong>:</p>
+<ul>
+<li><strong>缩进 (Indentation)</strong> 是 Python
+中定义代码块的<strong>强制要求</strong>（通常为 4 个空格）。</li>
+<li>冒号 <code>:</code> 表示代码块的开始。</li>
+</ul>
+<p><strong>三种基本形式</strong>:</p>
+<ol type="1">
+<li><p><strong>简单 <code>if</code></strong>:</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition:</span><br><span class="line">    <span class="comment"># 条件为 True 时执行</span></span><br><span class="line">    statement1</span><br><span class="line">    statement2</span><br><span class="line"><span class="comment"># 条件为 False 时直接跳到这里继续执行</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p><strong><code>if-else</code></strong> (二选一):</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition:</span><br><span class="line">    <span class="comment"># 条件为 True 执行 A</span></span><br><span class="line">    block_A</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 条件为 False 执行 B</span></span><br><span class="line">    block_B</span><br></pre></td></tr></table></figure></div></li>
+<li><p><strong><code>if-elif-else</code></strong> (多选一):</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> condition1:</span><br><span class="line">    block_1</span><br><span class="line"><span class="keyword">elif</span> condition2:</span><br><span class="line">    block_2</span><br><span class="line"><span class="keyword">elif</span> condition3:</span><br><span class="line">    block_3</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 以上条件均不满足时的“兜底”选项</span></span><br><span class="line">    block_else</span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<p><strong>执行逻辑</strong>:</p>
+<ul>
+<li>从上到下检查条件。</li>
+<li>执行<strong>第一个</strong>为 <code>True</code>
+的条件对应的代码块。</li>
+<li>一旦执行完某个分支，<strong>跳出整个结构</strong>，不再检查后续条件。</li>
+<li>如果没有 <code>else</code> 且所有条件均为
+<code>False</code>，则不执行任何分支。</li>
+</ul>
+<p>另外，当 <code>condition</code>
+内不止一个条件时，则需要用括号括起来，变成 <code>(condition)</code></p>
+<h4 id="代码块嵌套">3. 3 代码块嵌套</h4>
+<p>可以在一个条件分支内部再嵌套另一个条件分支。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x == y:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;x and y are equal&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> y != <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;and y is not zero&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;x and y are different&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="常见陷阱与调试">3. 4 常见陷阱与调试</h4>
+<p><strong>陷阱 1: 缩进错误</strong></p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x == y:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;x equals y&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;This always prints!&quot;</span>)  <span class="comment"># 此行缩进与 if 同级，不属于分支</span></span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>若需在条件成立时打印两句话，第二句必须同样缩进。</p>
+</blockquote>
+<p><strong>陷阱 2: 条件边界</strong></p>
+<p>在写“猜数字”游戏时：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> guess &gt; secret:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Too high&quot;</span>)</span><br><span class="line"><span class="keyword">elif</span> guess == secret:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Correct!&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Too low&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p><strong>注意</strong>: 使用 <code>&gt;</code> 而非
+<code>&gt;=</code>，否则当猜中时会被错误归类为 “Too high”。</p>
+</blockquote>
+<p><strong>陷阱 3: 多个 <code>if</code> vs
+<code>elif</code></strong></p>
+<ul>
+<li><strong>多个 <code>if</code></strong>: 每个 <code>if</code>
+都是独立的入口，可能会执行多个代码块。</li>
+<li><strong><code>if-elif</code></strong>:
+整体是一个结构，最多执行一个代码块。</li>
+</ul>
+<h3 id="四本讲核心总结">四、本讲核心总结</h3>
+<ol type="1">
+<li><p><strong>字符串</strong>: 是字符序列，支持拼接
+(<code>+</code>)、重复 (<code>*</code>)、索引 (<code>[]</code>) 和切片
+(<code>[ : : ]</code>)，且<strong>不可变</strong>。</p></li>
+<li><dl>
+<dt>输入输出</dt>
+<dd>
+
+</dd>
+</dl>
+<ul>
+<li><code>input ()</code>
+返回的<strong>永远是字符串</strong>，做数学运算前必须用
+<code>int ()</code> / <code>float ()</code> 转换。</li>
+<li>推荐使用 <strong>f-string</strong> 进行复杂的格式化输出。</li>
+</ul></li>
+<li><p><strong>布尔类型</strong>: <code>True</code> /
+<code>False</code>，结合比较运算符和逻辑运算符构成条件判断的基础。</p></li>
+<li><p><strong>条件分支</strong>: 使用 <code>if</code> /
+<code>elif</code> / <code>else</code>
+控制程序流程，<strong>缩进</strong>决定代码归属。</p></li>
+<li><p><strong>调试心态</strong>:
+多运行、多测试边界条件（如相等、零值、负数），利用 <strong>Python
+Tutor</strong> 可视化追踪变量变化。</p></li>
+</ol>
+<h3 id="ext.">Ext. 🤔</h3>
+<p>Python 使用缩进来定义代码块，具体的缩进规则是怎样的？</p>
+<p>简单总结：</p>
+<ul>
+<li>同一层级的语句，缩进字符数必须完全相同，至于缩进几个空格对逻辑没有影响。如果第一个语句缩进了
+4 个空格，第二个缩进了 3 个空格，Python 解释器就会抛出
+<code>IndentationError</code>。</li>
+<li>不同层级之间，外层用 2 个空格，内层用 100
+个空格，逻辑上<strong>完全不影响运行结果</strong>，只是可读性极差。只要各自层级内部保持一致即可。</li>
+<li>Python 3
+<strong>严格禁止混用制表符（Tab）和空格</strong>。即使肉眼看起来对齐了，解释器也会报错（<code>TabError</code>）。</li>
+<li>Python 官方风格指南 <strong>PEP 8</strong> 强烈建议<strong>使用 4
+个空格作为一级缩进</strong>。</li>
+</ul>
+<p>详见 <a class="link" 
+ target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.14/reference/lexical_analysis.html#indentation" >Python
+文档/词法分析/缩进<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<p>Python 严格缩进的话，该怎么将一个逻辑行拆成多个物理行以便于阅读？</p>
+<p>简单总结：</p>
+<ul>
+<li><p>逻辑行由一条或多条 物理行 根据 显式 或 隐式 的 行连接
+规则构造而成。</p></li>
+<li><p>显式拼接行：</p>
+<ul>
+<li><p>两个及两个以上的物理行可用反斜杠（<code>\</code>）拼接为一个逻辑行，规则如下：以<strong>不在字符串或注释内</strong>的反斜杠结尾时，物理行将与下一行拼接成一个逻辑行，并删除反斜杠及其后的换行符。</p></li>
+<li><p>以反斜杠结尾的行<strong>不能包含注释</strong>。反斜杠<strong>不能用于延续注释内容</strong>。除字符串字面量之外，反斜杠不能用于延续标记（即非字符串字面量的标记不能通过反斜杠拆分到物理行的下一行）。在字符串字面量之外的行中，反斜杠出现在其他位置是非法的。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例1 - 非法, 拆开标识符</span></span><br><span class="line">my_\</span><br><span class="line">variable = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例2 - 非法, 拆开数字</span></span><br><span class="line">num = <span class="number">123</span>\</span><br><span class="line"><span class="number">456</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例3 - 非法, 拆开运算符</span></span><br><span class="line">res = a +\</span><br><span class="line">b</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例4 - 非法, 出现在行内非末尾位置</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Hello&quot;</span>) \ World</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合法：字符串内部使用反斜杠跨行（效果等于 &quot;abcdef&quot;）</span></span><br><span class="line">s = <span class="string">&quot;abc\</span></span><br><span class="line"><span class="string">def&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 同样合法：转义换行符，但字符串内容包含换行</span></span><br><span class="line">t = <span class="string">&quot;abc\ndef&quot;</span></span><br></pre></td></tr></table></figure></div></li>
+</ul></li>
+<li><p>隐式拼接行：</p>
+<ul>
+<li><p>圆括号、方括号、花括号内的表达式可以分成多个物理行，不必使用反斜杠。</p></li>
+<li><p>隐式行拼接可含注释；后续行的缩进并不重要；还支持空的后续行。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">month_names = [<span class="string">&#x27;Januari&#x27;</span>, <span class="string">&#x27;Februari&#x27;</span>, <span class="string">&#x27;Maart&#x27;</span>,      <span class="comment"># 这些是</span></span><br><span class="line">            <span class="string">&#x27;April&#x27;</span>,   <span class="string">&#x27;Mei&#x27;</span>,      <span class="string">&#x27;Juni&#x27;</span>,       <span class="comment"># 一年之中</span></span><br><span class="line">			<span class="string">&#x27;Juli&#x27;</span>,    <span class="string">&#x27;Augustus&#x27;</span>, <span class="string">&#x27;September&#x27;</span>,  <span class="comment"># 各个月份的</span></span><br><span class="line">			<span class="string">&#x27;Oktober&#x27;</span>, <span class="string">&#x27;November&#x27;</span>, <span class="string">&#x27;December&#x27;</span>]   <span class="comment"># 荷兰语名称</span></span><br></pre></td></tr></table></figure></div></li>
+</ul></li>
+</ul>
+<p>详见 <a class="link" 
+ target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.14/reference/lexical_analysis.html#line-structure" >Python
+文档/词法分析/行结构<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a> 的 2.1.1 逻辑行 ~ 2.1.7 空白行</p>
+<hr />
+<h2 id="lecture-3-iteration">Lecture 3: Iteration</h2>
+<h3 id="一迭代引入为什么需要循环">一、迭代引入：为什么需要循环</h3>
+<h4 id="回顾分支的局限">1.1 回顾分支的局限</h4>
+<p>上一讲学习了分支（<code>if-elif-else</code>），程序可以根据条件选择执行某段代码。但对于需要<strong>重复执行</strong>的任务，仅靠分支无法优雅地实现。</p>
+<p><strong>示例：文字冒险游戏《迷失森林》</strong></p>
+<ul>
+<li><p>规则：提示用户选择“left”或“right”，若选“right”则重复显示同一画面，选“left”则逃脱。</p></li>
+<li><p>使用分支实现：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只能处理固定次数的重复，无法应对用户无限次输入 &quot;right&quot;</span></span><br><span class="line"><span class="keyword">if</span> choice == <span class="string">&quot;right&quot;</span>:</span><br><span class="line">    <span class="comment"># 再次询问...</span></span><br><span class="line">    <span class="keyword">if</span> choice == <span class="string">&quot;right&quot;</span>:</span><br><span class="line">        <span class="comment"># 再次询问...</span></span><br><span class="line">        <span class="comment"># ... 无限嵌套，不现实</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p><strong>问题</strong>：无法预知用户会连续输入多少次“right”，导致代码无法编写。</p></li>
+</ul>
+<h4 id="迭代的动机">1.2 迭代的动机</h4>
+<p>当需要<strong>在某个条件为真时重复执行一段代码</strong>，就需要使用<strong>循环（Loop）</strong>。</p>
+<p><strong>两种典型场景</strong>：</p>
+<ul>
+<li><strong>条件循环（<code>while</code>）</strong>：不知道具体重复次数，只知道继续的条件（如“用户一直选
+right”）。</li>
+<li><strong>计数循环（<code>for</code>）</strong>：已知重复次数或遍历一个已知序列（如“播放完本季全部
+4 集”）。</li>
+</ul>
+<h3 id="二while-循环">二、<code>while</code> 循环</h3>
+<h4 id="语法与执行流程">2.1 语法与执行流程</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> condition:</span><br><span class="line">    <span class="comment"># 循环体（缩进的代码块）</span></span><br><span class="line">    statement1</span><br><span class="line">    statement2</span><br><span class="line"><span class="comment"># 循环结束后继续执行此处</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>执行逻辑</strong>：</p>
+<ol type="1">
+<li>检查 <code>condition</code> 是否为 <code>True</code>。</li>
+<li>若为 <code>True</code>，执行缩进块内的所有代码。</li>
+<li>执行完毕后，<strong>自动回到步骤 1</strong>，再次检查条件。</li>
+<li>若条件变为 <code>False</code>，跳过循环体，执行后续未缩进代码。</li>
+</ol>
+<h4 id="示例迷失森林正确版">2.2 示例：迷失森林（正确版）</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">where = <span class="built_in">input</span>(<span class="string">&quot;You&#x27;re in the Lost Forest. Go left or right? &quot;</span>)</span><br><span class="line"><span class="keyword">while</span> where == <span class="string">&quot;right&quot;</span>:</span><br><span class="line">    where = <span class="built_in">input</span>(<span class="string">&quot;You&#x27;re in the Lost Forest. Go left or right? &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;You got out of the Lost Forest!&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p><strong>内存变化过程</strong>（假设用户依次输入 <code>"right"</code>,
+<code>"right"</code>, <code>"left"</code>）：</p>
+<ul>
+<li>初始：<code>where = "right"</code></li>
+<li>第一次循环：条件 <code>"right" == "right"</code>
+成立，再次询问，用户输入 <code>"right"</code>，<code>where</code>
+被重新绑定为 <code>"right"</code>。</li>
+<li>第二次循环：条件成立，再次询问，用户输入
+<code>"left"</code>，<code>where</code> 被绑定为
+<code>"left"</code>。</li>
+<li>第三次检查条件：<code>"left" == "right"</code> 为
+<code>False</code>，循环结束，打印逃脱信息。</li>
+</ul>
+<p><strong>注意</strong>：字符串比较是<strong>区分大小写</strong>的。输入
+<code>"RIGHT"</code> 或 <code>"Right"</code>
+会直接跳出循环（被视为“逃脱”）。</p>
+<p>Python 的字符串之间是可以直接用 <code>==</code> 来进行比较的</p>
+<p>如果需要判断内存地址是否相同（是否是同一个对象），则需要使用
+<code>is</code> 来进行比较</p>
+<p>可以类比于 C++ 的 <code>string</code>，也可以直接用 <code>==</code>
+进行比较</p>
+<h4 id="数值循环与计数器模式">2.3 数值循环与计数器模式</h4>
+<p><strong>示例：打印 <code>x</code> 指定次数</strong></p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;How many times? &quot;</span>))</span><br><span class="line"><span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;x&quot;</span>)</span><br><span class="line">    n = n - <span class="number">1</span>   <span class="comment"># 关键：必须改变条件相关变量</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>若缺少 <code>n = n - 1</code>，<code>n</code> 永远大于
+<code>0</code>，导致<strong>无限循环</strong>。</li>
+</ul>
+<h4 id="无限循环与强制中断">2.4 无限循环与强制中断</h4>
+<ul>
+<li><p><strong>产生原因</strong>：循环条件永远为
+<code>True</code>，或循环体内未修改条件相关变量。</p></li>
+<li><p><strong>识别</strong>：程序运行超过 1～2
+秒无响应，或控制台疯狂刷屏。</p></li>
+<li><p>中断方法</p>
+<p>：</p>
+<ul>
+<li>点击运行窗口的红色停止按钮。</li>
+<li>在控制台（Shell）中按 <code>Ctrl + C</code>（Windows/Linux）或
+<code>Command + C</code>（Mac）。</li>
+</ul></li>
+</ul>
+<h4 id="练习带计数器的迷失森林">2.5 练习：带计数器的迷失森林</h4>
+<p><strong>需求</strong>：若用户连续选择 <code>"right"</code>
+<strong>超过 2 次</strong>，则在每次继续询问前打印一个哭脸
+<code>:(</code>。</p>
+<p><strong>实现思路</strong>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">0</span>   <span class="comment"># 计数器，初始化为0</span></span><br><span class="line">where = <span class="built_in">input</span>(<span class="string">&quot;Go left or right? &quot;</span>)</span><br><span class="line"><span class="keyword">while</span> where == <span class="string">&quot;right&quot;</span>:</span><br><span class="line">    n = n + <span class="number">1</span>               <span class="comment"># 每进入一次循环，计数器+1</span></span><br><span class="line">    <span class="keyword">if</span> n &gt; <span class="number">2</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;:(&quot;</span>)         <span class="comment"># 超过2次后显示哭脸</span></span><br><span class="line">    where = <span class="built_in">input</span>(<span class="string">&quot;Go left or right? &quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;You escaped!&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="while-循环典型结构计数器模式">2.6 <code>while</code>
+循环典型结构（计数器模式）</h4>
+<p>许多数值任务采用如下模式：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 初始化循环变量</span></span><br><span class="line">i = <span class="number">0</span></span><br><span class="line"><span class="comment"># 2. 条件判断</span></span><br><span class="line"><span class="keyword">while</span> i &lt; <span class="number">5</span>:</span><br><span class="line">    <span class="comment"># 3. 执行任务（可使用 i）</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    <span class="comment"># 4. 更新循环变量（避免无限循环）</span></span><br><span class="line">    i = i + <span class="number">1</span>   <span class="comment"># 或 i += 1</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>示例：计算阶乘（<code>while</code> 版）</strong></p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">4</span></span><br><span class="line">i = <span class="number">1</span></span><br><span class="line">factorial = <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> i &lt;= x:</span><br><span class="line">    factorial = factorial * i   <span class="comment"># 或 factorial *= i</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;x&#125;</span> factorial is <span class="subst">&#123;factorial&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h3 id="三for-循环">三、<code>for</code> 循环</h3>
+<h4 id="动机简化固定次数循环">3.1 动机：简化固定次数循环</h4>
+<p><code>while</code>
+循环需要手动管理初始化、条件判断和变量更新，繁琐且易错。<code>for</code>
+循环针对<strong>遍历序列</strong>的场景提供了更简洁的语法。</p>
+<p><strong>类比</strong>：</p>
+<ul>
+<li><code>while</code>：Netflix
+连续播放，直到你手动停止或剧集结束。</li>
+<li><code>for</code>：Netflix
+自动播放完<strong>指定数量</strong>的剧集（如 4 集）后暂停询问。</li>
+</ul>
+<h4 id="语法">3.2 语法</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> variable <span class="keyword">in</span> sequence:</span><br><span class="line">    <span class="comment"># 循环体（缩进块）</span></span><br><span class="line">    statement</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><code>variable</code>：循环变量，每次迭代时自动被赋值为序列中的下一个元素。</li>
+<li><code>sequence</code>：<strong>任何可迭代对象</strong>（如
+<code>range</code> 生成的数列、字符串、列表等）。</li>
+</ul>
+<p>注意：循环变量variable</p>
+<p>在 <code>for</code> 循环内部修改循环变量（如
+<code>i = 5</code>）<strong>不会影响</strong>下一次迭代的赋值，Python
+仍会按序列顺序赋予新值。</p>
+<h4 id="range-函数">3.3 <code>range()</code> 函数</h4>
+<p><code>range()</code> 用于生成整数序列，是 <code>for</code>
+循环最常用的搭档。</p>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 48%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr>
+<th>形式</th>
+<th>含义</th>
+<th>生成的序列（举例）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>range(stop)</code></td>
+<td>从 <code>0</code> 开始，到 <code>stop-1</code> 结束，步长
+<code>1</code></td>
+<td><code>range(5)</code> → <code>0, 1, 2, 3, 4</code></td>
+</tr>
+<tr>
+<td><code>range(start, stop)</code></td>
+<td>从 <code>start</code> 开始，到 <code>stop-1</code> 结束，步长
+<code>1</code></td>
+<td><code>range(3, 5)</code> → <code>3, 4</code></td>
+</tr>
+<tr>
+<td><code>range(start, stop, step)</code></td>
+<td>从 <code>start</code> 开始，按 <code>step</code>
+递增/递减，<strong>不包含</strong> <code>stop</code></td>
+<td><code>range(4, 0, -1)</code> → <code>4, 3, 2, 1</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意</strong>：<code>range</code>
+的参数含义与<strong>字符串切片</strong> <code>[start:stop:step]</code>
+逻辑一致，只是分隔符不同（逗号 vs 冒号）。</p>
+<p>拓展内容</p>
+<p><a class="link" 
+ target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.14/library/stdtypes.html#range" >Python
+文档/内置类型/序列类型/range 对象<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h4 id="示例打印-range-中的值">3.4 示例：打印 <code>range</code>
+中的值</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4</span>, <span class="number">1</span>):   <span class="comment"># 1, 2, 3</span></span><br><span class="line">    <span class="built_in">print</span>(i)               <span class="comment"># 输出 1 换行 2 换行 3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">4</span>, <span class="number">2</span>):   <span class="comment"># 1, 3</span></span><br><span class="line">    <span class="built_in">print</span>(j * <span class="number">2</span>)           <span class="comment"># 输出 2 换行 6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>, <span class="number">0</span>, -<span class="number">1</span>):  <span class="comment"># 4, 3, 2, 1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;$&quot;</span> * k)         <span class="comment"># 输出 $$$$ \n $$$ \n $$ \n $</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="示例累加求和">3.5 示例：累加求和</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mysum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):    <span class="comment"># i = 0, 1, 2, ..., 9</span></span><br><span class="line">    mysum += i         <span class="comment"># 等价于 mysum = mysum + i</span></span><br><span class="line"><span class="built_in">print</span>(mysum)           <span class="comment"># 输出 45</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>内存演变</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>循环次数</th>
+<th><code>i</code></th>
+<th><code>mysum</code>（运算后）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0 + 0 = 0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>0 + 1 = 1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>2</td>
+<td>1 + 2 = 3</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>10</td>
+<td>9</td>
+<td>36 + 9 = 45</td>
+</tr>
+</tbody>
+</table>
+<h4 id="对比阶乘的-for-循环实现">3.6 对比：阶乘的 <code>for</code>
+循环实现</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">4</span></span><br><span class="line">factorial = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, x + <span class="number">1</span>):   <span class="comment"># i = 1, 2, 3, 4</span></span><br><span class="line">    factorial *= i</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;x&#125;</span> factorial is <span class="subst">&#123;factorial&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p><strong>优势</strong>：</p>
+<ul>
+<li>无需手动初始化 <code>i</code>。</li>
+<li>无需手动书写 <code>i += 1</code>。</li>
+<li>代码更清晰，意图更明确。</li>
+</ul>
+<h3 id="四调试技巧使用-print-追踪循环">四、调试技巧：使用
+<code>print</code> 追踪循环</h3>
+<p>当循环结果不符合预期时，可在循环体内插入 <code>print</code>
+语句观察变量变化。</p>
+<p><strong>示例：修复求和范围错误</strong></p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">start = <span class="number">3</span></span><br><span class="line">end = <span class="number">5</span></span><br><span class="line">total = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, end):      <span class="comment"># 错误：只生成 3, 4，遗漏 5</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;i = <span class="subst">&#123;i&#125;</span>&quot;</span>)            <span class="comment"># 调试输出</span></span><br><span class="line">    total += i</span><br><span class="line"><span class="built_in">print</span>(total)                     <span class="comment"># 输出 7，而非期望的 12</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>修复</strong>：将 <code>range(start, end)</code> 改为
+<code>range(start, end + 1)</code>。</p>
+<h3 id="五本讲核心总结">五、本讲核心总结</h3>
+<ol type="1">
+<li><p><strong>循环的意义</strong>：解决需要重复执行某段代码的场景，弥补分支结构的不足。</p></li>
+<li><p><code>while</code> 循环</p>
+<p>：</p>
+<ul>
+<li>适用于<strong>不确定重复次数</strong>、依赖条件判断的场景。</li>
+<li>必须在循环体内<strong>修改条件变量</strong>，否则会导致无限循环。</li>
+<li>典型模式：初始化变量 → <code>while 条件:</code> → 执行任务 →
+更新变量。</li>
+</ul></li>
+<li><p><code>for</code> 循环</p>
+<p>：</p>
+<ul>
+<li>适用于<strong>遍历已知序列</strong>或<strong>固定次数</strong>的场景。</li>
+<li>配合 <code>range(start, stop, step)</code>
+生成整数序列，语法与切片类似。</li>
+<li>自动管理循环变量的赋值与更新，代码更简洁、安全。</li>
+</ul></li>
+<li><p><strong>调试</strong>：善用 <code>print</code>
+输出中间变量值，是定位循环逻辑错误的有效手段。</p></li>
+</ol>
+<hr />
+<h2 id="lecture-4-loops-over-strings-guess-and-check-binary">Lecture 4:
+Loops over Strings, Guess-and-Check, Binary</h2>
+<h3
+id="一循环的提前退出break-语句">一、循环的提前退出：<code>break</code>
+语句</h3>
+<h4 id="break-的作用与语法">1.1 <code>break</code> 的作用与语法</h4>
+<ul>
+<li><strong>作用</strong>：在循环条件尚未自然结束或序列尚未耗尽时，<strong>立即终止当前所在的循环</strong>。</li>
+<li><strong>语法</strong>：直接写 <code>break</code> 关键字。</li>
+<li><strong>重要规则</strong>：<code>break</code>
+只会跳出<strong>直接包围它的那一层循环</strong>，不会跳出外层循环，也不会跳出
+<code>if</code> 等条件结构。</li>
+</ul>
+<h4 id="示例与执行过程">1.2 示例与执行过程</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysum = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>, <span class="number">11</span>, <span class="number">2</span>):   <span class="comment"># i = 5, 7, 9</span></span><br><span class="line">    mysum += i</span><br><span class="line">    <span class="keyword">if</span> mysum == <span class="number">5</span>:</span><br><span class="line">        <span class="keyword">break</span>               <span class="comment"># 首次循环后 mysum=5，触发 break</span></span><br><span class="line">    mysum += <span class="number">1</span>              <span class="comment"># 此行永远不会执行</span></span><br><span class="line"><span class="built_in">print</span>(mysum)                <span class="comment"># 输出 5</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>执行步骤追踪</strong>：</p>
+<ol type="1">
+<li><code>i = 5</code>，<code>mysum = 0 + 5 = 5</code>。</li>
+<li><code>if mysum == 5</code> 成立，执行 <code>break</code>。</li>
+<li><strong>直接跳出 <code>for</code> 循环</strong>，后续的
+<code>mysum += 1</code> 和剩余的 <code>i</code> 值（7,
+9）均被跳过。</li>
+<li>输出最终 <code>mysum</code> 为 <code>5</code>。</li>
+</ol>
+<blockquote>
+<p><strong>注意</strong>：在 <code>break</code>
+之后的同缩进级代码将永远不会被执行，这是逻辑错误，实际编程中应避免。</p>
+</blockquote>
+<h4 id="break-与嵌套循环">1.3 <code>break</code> 与嵌套循环</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> condition1:</span><br><span class="line">    <span class="comment"># 外层循环体</span></span><br><span class="line">    <span class="keyword">while</span> condition2:</span><br><span class="line">        <span class="comment"># 内层循环体</span></span><br><span class="line">        <span class="keyword">if</span> some_condition:</span><br><span class="line">            <span class="keyword">break</span>       <span class="comment"># 仅跳出内层 while，外层循环继续</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><code>break</code> 只终止内层循环，外层循环继续执行后续迭代。</li>
+</ul>
+<p>拓展 - continue</p>
+<p>与 <code>break</code> 类似，<code>continue</code>
+的作用是：跳过本次循环剩余代码，直接进入下一次迭代。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> condition:</span><br><span class="line">	<span class="keyword">if</span> some_condition:</span><br><span class="line">		<span class="keyword">continue</span>    <span class="comment"># 跳过continue下方所有本循环内的语句, 直接进入下一轮循环</span></span><br><span class="line">	<span class="built_in">print</span>()</span><br></pre></td></tr></table></figure></div>
+<h3 id="二for-循环遍历字符串">二、<code>for</code> 循环遍历字符串</h3>
+<h4 id="直接遍历字符">2.1 直接遍历字符</h4>
+<p><code>for</code> 循环不仅可以遍历 <code>range</code>
+生成的数字序列，也可以直接遍历字符串中的每个字符。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;Demo text&quot;</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">    <span class="comment"># char 依次为 &#x27;D&#x27;, &#x27;e&#x27;, &#x27;m&#x27;, &#x27;o&#x27;, &#x27; &#x27;, &#x27;t&#x27;, &#x27;e&#x27;, &#x27;x&#x27;, &#x27;t&#x27;</span></span><br><span class="line">    <span class="built_in">print</span>(char)</span><br></pre></td></tr></table></figure></div>
+<p><strong>对比索引遍历与直接遍历</strong>：</p>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 45%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr>
+<th>方式</th>
+<th>代码</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>索引遍历</td>
+<td><code>for i in range(len(s)): print(s[i])</code></td>
+<td>需要借助索引作为中间变量，不够直观</td>
+</tr>
+<tr>
+<td>直接遍历</td>
+<td><code>for char in s: print(char)</code></td>
+<td>直接操作字符，代码更简洁、更 Pythonic</td>
+</tr>
+</tbody>
+</table>
+<p>如果在遍历时，需要同时获取索引和字符，可以使用 enumerate 函数</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> idx, char <span class="keyword">in</span> <span class="built_in">enumerate</span>(<span class="string">&quot;hello&quot;</span>):</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">f&quot;Index <span class="subst">&#123;idx&#125;</span>: <span class="subst">&#123;char&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="使用-in-运算符进行成员检查">2.2 使用 <code>in</code>
+运算符进行成员检查</h4>
+<p><code>in</code>
+关键字用于检查一个值是否存在于一个序列（如字符串、列表等）中，结果为布尔值。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查字符是否为元音字母</span></span><br><span class="line"><span class="keyword">if</span> char <span class="keyword">in</span> <span class="string">&quot;aeiou&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;char&#125;</span> is a vowel&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><code>in</code> 可以替代多个 <code>or</code> 连接的条件，如
+<code>if char == 'a' or char == 'e' ...</code>。</li>
+<li>特别适用于检查字符是否属于一个较长的集合（如所有数字
+<code>"0123456789"</code>）。</li>
+</ul>
+<p>拓展 - 成员运算符 in</p>
+<p><code>in</code> 是 Python
+中的<strong>成员检查运算符</strong>，用于判断某个元素是否存在于一个可迭代对象（如字符串、列表、元组、集合、字典等）中，返回布尔值
+<code>True</code> 或 <code>False</code>。</p>
+<p>取反用 <code>not in</code>。</p>
+<p>对不同数据类型的行为：</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 30%" />
+<col style="width: 33%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr>
+<th>数据类型</th>
+<th><code>in</code> 检查的内容</th>
+<th>示例</th>
+<th>时间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>字符串</strong></td>
+<td>子串是否包含在字符串中</td>
+<td><code>"th" in "Python"</code> → <code>True</code></td>
+<td>线性扫描，O (n)</td>
+</tr>
+<tr>
+<td><strong>列表 / 元组</strong></td>
+<td>元素是否与序列中的某个值相等</td>
+<td><code>3 in [1, 2, 3]</code> → <code>True</code></td>
+<td>线性扫描，O (n)</td>
+</tr>
+<tr>
+<td><strong>集合</strong></td>
+<td>元素是否是集合的成员（基于哈希值）</td>
+<td><code>"a" in &#123;"a", "b"&#125;</code> → <code>True</code></td>
+<td>基于哈希表查找，平均 O (1)</td>
+</tr>
+<tr>
+<td><strong>字典</strong></td>
+<td>键（key）是否存在于字典中</td>
+<td><code>"name" in &#123;"name": "Alice"&#125;</code> → <code>True</code></td>
+<td>基于哈希表查找，平均 O (1)</td>
+</tr>
+<tr>
+<td><strong>字典的值</strong></td>
+<td>值是否存在于字典的值视图中</td>
+<td><code>"Alice" in d.values()</code> → <code>True</code></td>
+<td>基于哈希表查找，平均 O (1)</td>
+</tr>
+</tbody>
+</table>
+<p>在字符串中的 <code>in</code> 需要注意：</p>
+<ul>
+<li>查找<strong>严格区分大小写</strong></li>
+<li>可以检查<strong>空字符串</strong></li>
+</ul>
+<h4 id="综合示例啦啦队机器人">2.3 综合示例：啦啦队机器人</h4>
+<p>程序功能：输入一个单词和热情程度，按字母逐个拼读，最后重复喊出该单词。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">word = <span class="built_in">input</span>(<span class="string">&quot;Enter a word: &quot;</span>)</span><br><span class="line">times = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;Enthusiasm level (1-10): &quot;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第一部分：逐个字母拼读</span></span><br><span class="line">vowels = <span class="string">&quot;aeiouAEIOU&quot;</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> word:</span><br><span class="line">    <span class="keyword">if</span> char <span class="keyword">in</span> vowels:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Give me an <span class="subst">&#123;char&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Give me a <span class="subst">&#123;char&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;What does that spell? <span class="subst">&#123;word.upper()&#125;</span>!&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二部分：按热情程度重复喊出单词</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(times):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;word&#125;</span>!!!&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p><strong>要点</strong>：</p>
+<ul>
+<li>第一部分 <code>for char in word</code>
+直接遍历单词中的每个字母，无需使用索引。</li>
+<li>第二部分 <code>for i in range(times)</code>
+利用循环次数控制重复次数，循环变量 <code>i</code>
+未被使用（这是合法的）。</li>
+</ul>
+<h4 id="练习统计字符串中不重复字母的数量">2.4
+练习：统计字符串中不重复字母的数量</h4>
+<p><strong>问题</strong>：给定字符串
+<code>s</code>（仅含小写字母），统计其中出现了多少个<strong>不同的</strong>字母。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&quot;abca&quot;</span></span><br><span class="line">seen = <span class="string">&quot;&quot;</span>           <span class="comment"># 用于记录已见过的字母</span></span><br><span class="line"><span class="keyword">for</span> char <span class="keyword">in</span> s:</span><br><span class="line">    <span class="keyword">if</span> char <span class="keyword">not</span> <span class="keyword">in</span> seen:</span><br><span class="line">        seen += char   <span class="comment"># 将新字母追加到 seen 末尾</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">len</span>(seen))    <span class="comment"># 输出 3</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>思路解析</strong>：</p>
+<ol type="1">
+<li><p>遍历字符串中的每个字符。</p></li>
+<li><p>若当前字符</p>
+<p>不在</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">seen</span><br></pre></td></tr></table></figure></div>
+<p>中，说明是第一次遇到：</p>
+<ul>
+<li>将其添加到 <code>seen</code>。</li>
+<li>（可选）计数器加 1。</li>
+</ul></li>
+<li><p>循环结束后，<code>seen</code>
+的长度即为不同字母的个数（也可直接维护计数器）。</p></li>
+</ol>
+<h3 id="三布尔标志boolean-flag">三、布尔标志（Boolean Flag）</h3>
+<h4 id="什么是布尔标志">3.1 什么是布尔标志</h4>
+<ul>
+<li><strong>定义</strong>：一个用于记录“某事件是否发生”的布尔变量（取值为
+<code>True</code> 或 <code>False</code>）。</li>
+<li><strong>用途</strong>：在循环或复杂逻辑中跟踪状态，便于在循环结束后做出统一判断。</li>
+</ul>
+<h4 id="经典应用在序列中查找元素">3.2 经典应用：在序列中查找元素</h4>
+<p><strong>需求</strong>：判断一个数是否在 1～10
+范围内，若在则打印“找到”，若不在则打印“未找到”。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">secret = <span class="number">7</span></span><br><span class="line">found = <span class="literal">False</span>               <span class="comment"># 标志初始化为 False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">11</span>):      <span class="comment"># 1, 2, ..., 10</span></span><br><span class="line">    <span class="keyword">if</span> i == secret:</span><br><span class="line">        found = <span class="literal">True</span>        <span class="comment"># 事件发生，更新标志</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> found:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Found!&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Not found.&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p><strong>为什么不在循环内直接 <code>else</code>？</strong></p>
+<ul>
+<li>若将 <code>else</code> 放在 <code>for</code> 循环内部，每当
+<code>i != secret</code> 时都会执行 <code>else</code>
+分支，导致“未找到”被重复打印多次。</li>
+<li>使用标志将判断逻辑<strong>延迟到循环结束后</strong>执行，确保只输出一次最终结果。</li>
+</ul>
+<h4 id="标志的其他应用场景">3.3 标志的其他应用场景</h4>
+<ul>
+<li>判断数据中是否存在异常值。</li>
+<li>判断用户是否输入了特定命令。</li>
+<li>记录循环是否提前通过 <code>break</code> 退出。</li>
+</ul>
+<h3
+id="四猜与检查算法guess-and-check">四、猜与检查算法（Guess-and-Check）</h3>
+<h4 id="算法思想">4.1 算法思想</h4>
+<p>又称为<strong>穷举法（Exhaustive Enumeration）</strong>：</p>
+<ol type="1">
+<li>从某个初始值开始猜测。</li>
+<li>检查当前猜测是否满足问题的解。</li>
+<li>若满足，则找到答案；若不满足，则按一定规则生成下一个猜测。</li>
+<li>重复步骤
+2～3，直到<strong>穷尽所有可能的猜测</strong>或找到解为止。</li>
+</ol>
+<p><strong>关键</strong>：必须有一个<strong>明确的终止条件</strong>，避免无限循环。</p>
+<h4 id="示例判断一个数是否为完全平方数">4.2
+示例：判断一个数是否为完全平方数</h4>
+<p><strong>问题</strong>：给定正整数
+<code>x</code>，判断它是否为完全平方数，若是则输出其平方根。</p>
+<p><strong>解法（使用 <code>while</code> 循环）</strong>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;Enter a positive integer: &quot;</span>))</span><br><span class="line">guess = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> guess ** <span class="number">2</span> &lt; x:</span><br><span class="line">    guess += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> guess ** <span class="number">2</span> == x:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;x&#125;</span> is a perfect square, root = <span class="subst">&#123;guess&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;x&#125;</span> is not a perfect square&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p><strong>执行逻辑</strong>：</p>
+<ul>
+<li><code>guess</code> 从 0 开始，只要 <code>guess² &lt; x</code>
+就继续递增。</li>
+<li>当循环退出时，<code>guess²</code> 必然 <strong>大于或等于</strong>
+<code>x</code>。</li>
+<li>通过 <code>if guess² == x</code>
+区分是<strong>恰好相等</strong>（找到平方根）还是<strong>超过</strong>（非完全平方数）。</li>
+</ul>
+<h4 id="处理负数输入添加布尔标志">4.3 处理负数输入：添加布尔标志</h4>
+<p>上述代码无法处理负数（因为 <code>0² &lt; 负数</code>
+为假，循环直接跳过）。可通过布尔标志友好提示用户。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;Enter an integer: &quot;</span>))</span><br><span class="line">neg_flag = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">0</span>:</span><br><span class="line">    neg_flag = <span class="literal">True</span></span><br><span class="line">    x = <span class="built_in">abs</span>(x)          <span class="comment"># 转为正数进行计算</span></span><br><span class="line"></span><br><span class="line">guess = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> guess ** <span class="number">2</span> &lt; x:</span><br><span class="line">    guess += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> guess ** <span class="number">2</span> == x:</span><br><span class="line">    <span class="keyword">if</span> neg_flag:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Imaginary root? The absolute value is a perfect square.&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Perfect square, root = <span class="subst">&#123;guess&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Not a perfect square&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="使用-for-循环实现猜与检查">4.4 使用 <code>for</code>
+循环实现猜与检查</h4>
+<p>对于已知猜测范围的场景，<code>for</code> 循环往往更简洁。</p>
+<p><strong>示例：判断完全立方数（并处理负数）</strong></p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cube = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;Enter an integer: &quot;</span>))</span><br><span class="line">abs_cube = <span class="built_in">abs</span>(cube)</span><br><span class="line">found = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> guess <span class="keyword">in</span> <span class="built_in">range</span>(abs_cube + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> guess ** <span class="number">3</span> == abs_cube:</span><br><span class="line">        <span class="keyword">if</span> cube &lt; <span class="number">0</span>:</span><br><span class="line">            guess = -guess</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Cube root of <span class="subst">&#123;cube&#125;</span> is <span class="subst">&#123;guess&#125;</span>&quot;</span>)</span><br><span class="line">        found = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> found:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;cube&#125;</span> is not a perfect cube&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p><strong>优化：提前终止</strong></p>
+<ul>
+<li>当 <code>guess ** 3 &gt;= abs_cube</code> 时即可停止循环，无需检查到
+<code>abs_cube</code>。</li>
+<li>可以通过 <code>if guess ** 3 &gt;= abs_cube: break</code>
+提升效率。</li>
+</ul>
+<h4 id="应用计算思维解决数学问题">4.5 应用计算思维解决数学问题</h4>
+<p><strong>问题</strong>：Alyssa、Ben、Cindy 三人卖票。Ben 比 Alyssa
+少卖 2 张，Cindy 卖的是 Alyssa 的两倍，总共卖出 10 张。问 Alyssa
+卖了多少张？</p>
+<p><strong>解法一：三重循环（穷举所有组合）</strong></p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">11</span>):          <span class="comment"># Alyssa 可能卖 0～10 张</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">11</span>):      <span class="comment"># Ben 可能卖 0～10 张</span></span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">11</span>):  <span class="comment"># Cindy 可能卖 0～10 张</span></span><br><span class="line">            <span class="keyword">if</span> (a + b + c == <span class="number">10</span> <span class="keyword">and</span></span><br><span class="line">                b == a - <span class="number">2</span> <span class="keyword">and</span></span><br><span class="line">                c == <span class="number">2</span> * a):</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;Alyssa: <span class="subst">&#123;a&#125;</span>, Ben: <span class="subst">&#123;b&#125;</span>, Cindy: <span class="subst">&#123;c&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>此方法简单直观，但当数字变大时（如总数变为
+1000），循环次数会急剧膨胀（1000³ = 10⁹），运行极慢。</li>
+</ul>
+<p><strong>解法二：结合代数简化</strong></p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1001</span>):        <span class="comment"># 只循环 Alyssa 的票数</span></span><br><span class="line">    b = a - <span class="number">2</span></span><br><span class="line">    c = <span class="number">2</span> * a</span><br><span class="line">    <span class="keyword">if</span> a + b + c == <span class="number">1000</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;Alyssa: <span class="subst">&#123;a&#125;</span>, Ben: <span class="subst">&#123;b&#125;</span>, Cindy: <span class="subst">&#123;c&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>利用变量间的关系，将三重循环简化为单循环，大幅提升效率。</li>
+<li>体现了<strong>计算思维</strong>：用程序系统性地尝试解空间，同时借助数学关系缩小搜索范围。</li>
+</ul>
+<h3 id="五浮点数误差与二进制简介">五、浮点数误差与二进制简介</h3>
+<h4 id="一个反直觉的现象">5.1 一个反直觉的现象</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0.0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    x += <span class="number">0.1</span></span><br><span class="line"><span class="built_in">print</span>(x == <span class="number">1.0</span>)      <span class="comment"># False</span></span><br><span class="line"><span class="built_in">print</span>(x)             <span class="comment"># 0.9999999999999999</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>将 <code>0.1</code> 累加 10 次，数学上应得
+<code>1.0</code>，但计算机却得到 <code>0.999...</code>，相等比较为
+<code>False</code>。</li>
+<li>直接计算 <code>0.1 * 10</code> 却能得到 <code>1.0</code>。</li>
+</ul>
+<h4 id="原因浮点数的二进制表示">5.2 原因：浮点数的二进制表示</h4>
+<ul>
+<li>计算机内部以<strong>二进制（0 和 1）</strong>存储所有数据。</li>
+<li>整数可以精确转换为二进制（如
+<code>1507₁₀ = 10111100011₂</code>）。</li>
+<li>但许多十进制小数（如
+<code>0.1</code>）在二进制中是<strong>无限循环小数</strong>，类似于十进制中的
+<code>1/3 = 0.333...</code>。</li>
+<li>计算机只能用<strong>有限位数</strong>近似存储这些小数，从而引入微小的<strong>舍入误差（Floating-point
+error）</strong>。</li>
+<li>反复进行浮点运算时，误差会累积，导致不可预期的结果。</li>
+</ul>
+<h4 id="编程启示">5.3 编程启示</h4>
+<ul>
+<li><strong>避免直接比较两个浮点数是否相等</strong>（<code>==</code>）。</li>
+<li>替代方案：检查两数之差是否小于一个极小的阈值（如
+<code>abs(a - b) &lt; 1e-9</code>）。</li>
+<li>对于需要精确计算的场景（如金融），应使用 <code>decimal</code>
+模块或整数（以最小单位计）。</li>
+</ul>
+<h4 id="十进制转二进制的算法思路">5.4 十进制转二进制的算法思路</h4>
+<p><strong>整数部分</strong>（以 <code>1507</code> 为例）：</p>
+<ol type="1">
+<li>将数除以 2，记录<strong>余数</strong>（0 或
+1），该余数为二进制的最低位。</li>
+<li>将商继续除以 2，记录新的余数，依次作为更高的位。</li>
+<li>重复直到商为 0。</li>
+</ol>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">num = <span class="number">1507</span></span><br><span class="line">binary = <span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">while</span> num &gt; <span class="number">0</span>:</span><br><span class="line">    remainder = num % <span class="number">2</span></span><br><span class="line">    binary = <span class="built_in">str</span>(remainder) + binary   <span class="comment"># 将新余数放在前面</span></span><br><span class="line">    num = num // <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(binary)   <span class="comment"># 10111100011</span></span><br></pre></td></tr></table></figure></div>
+<blockquote>
+<p>负数只需在结果前添加负号。</p>
+</blockquote>
+<h3 id="六本讲核心总结-1">六、本讲核心总结</h3>
+<ol type="1">
+<li><p><strong><code>break</code>
+语句</strong>：可提前终止循环，但只作用于最内层循环。</p></li>
+<li><p><strong><code>for</code>
+循环遍历字符串</strong>：<code>for char in string</code>
+直接操作字符，更简洁直观。</p></li>
+<li><p><strong><code>in</code>
+运算符</strong>：用于成员检查，可简化多条件 <code>or</code>
+表达式。</p></li>
+<li><p><strong>布尔标志</strong>：用于记录事件是否发生，便于在循环结束后统一处理逻辑。</p></li>
+<li><p>猜与检查算法</p>
+<p>：</p>
+<ul>
+<li>系统地枚举可能解，逐个验证。</li>
+<li>必须定义清晰的终止条件。</li>
+<li>可结合 <code>while</code> 或 <code>for</code> 实现。</li>
+<li>结合代数知识可大幅优化搜索效率（计算思维的核心体现）。</li>
+</ul></li>
+<li><p>浮点数误差</p>
+<p>：</p>
+<ul>
+<li>源于二进制无法精确表示某些十进制小数。</li>
+<li>避免直接使用 <code>==</code> 比较浮点数。</li>
+<li>理解其成因有助于写出健壮的数值程序。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="lecture-5-floats-and-approximation-methods">Lecture 5: Floats
+and Approximation Methods</h2>
+<h3 id="一浮点数误差的动机回顾">一、浮点数误差的动机回顾</h3>
+<p>上一讲中我们看到了一个令人困惑的现象：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0.0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    x += <span class="number">0.1</span></span><br><span class="line"><span class="built_in">print</span>(x == <span class="number">1.0</span>)   <span class="comment"># False</span></span><br><span class="line"><span class="built_in">print</span>(x)          <span class="comment"># 0.9999999999999999</span></span><br></pre></td></tr></table></figure></div>
+<p>将 <code>0.1</code> 累加 10 次，在数学上应精确等于
+<code>1.0</code>，但计算机却给出了 <code>0.999...</code>，相等比较返回
+<code>False</code>。这揭示了一个重要问题：<strong>浮点数在计算机中的表示并非总是精确的</strong>，直接使用
+<code>==</code> 比较浮点数可能导致程序行为异常。</p>
+<p>本讲将深入探讨这一现象背后的原因——二进制表示法，并引出第二种重要算法：<strong>近似方法（Approximation
+Method）</strong>。</p>
+<h3
+id="二十进制小数如何转换为二进制">二、十进制小数如何转换为二进制</h3>
+<h4 id="基本思路">2.1 基本思路</h4>
+<p>十进制整数转换为二进制有一套清晰的算法（上一讲已介绍）。但对于<strong>小数部分</strong>，转换方式则不同。核心思路是：</p>
+<blockquote>
+<p>找到一个<strong>足够大的 2
+的幂次</strong>，使得该小数乘以该幂次后得到一个整数。然后将该整数转换为二进制，再相应地移动小数点。</p>
+</blockquote>
+<h4 id="示例将-0.375-转换为二进制">2.2 示例：将 0.375 转换为二进制</h4>
+<ol type="1">
+<li><strong>寻找合适的 2 的幂次</strong>：<code>0.375 = 3/8</code>，乘以
+<code>8</code>（即 <code>2³</code>）得到整数 <code>3</code>。</li>
+<li><strong>将整数部分转换为二进制</strong>：<code>3</code> 的二进制为
+<code>11</code>。</li>
+<li><strong>根据幂次移动小数点</strong>：乘以 <code>2³</code>
+后，结果需除以 <code>2³</code> 以恢复原值。在二进制中，除以
+<code>2³</code> 等价于将小数点<strong>向左移动 3
+位</strong>。<code>11</code> 向左移 3 位（不足补 0）得
+<code>0.011</code>。</li>
+</ol>
+<p>因此，<code>0.375</code> 的二进制表示为 <code>0.011</code>。</p>
+<h4 id="通用转换算法">2.3 通用转换算法</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0.625</span></span><br><span class="line">p = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> (x * (<span class="number">2</span> ** p)) % <span class="number">1</span> != <span class="number">0</span>:   <span class="comment"># 不断尝试更大的 2 的幂，直到乘积为整数</span></span><br><span class="line">    p += <span class="number">1</span></span><br><span class="line">num = <span class="built_in">int</span>(x * (<span class="number">2</span> ** p))           <span class="comment"># 得到整数部分</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 num 转换为二进制字符串（略，见上一讲）</span></span><br><span class="line"><span class="comment"># 然后根据 p 的值向左移动小数点，必要时补前导 0</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>对于某些小数（如
+<code>0.5</code>、<code>0.625</code>），很快就能找到合适的
+<code>p</code>，二进制表示较短。</li>
+<li>但对于 <strong>0.1</strong>，程序需要将 <code>p</code> 增大到约 50
+才能找到整数乘积，得到的二进制表示长达 50 多位。</li>
+</ul>
+<h4 id="关键问题">2.4 关键问题</h4>
+<p>并非所有十进制小数都能找到<strong>有限长度的</strong>二进制精确表示。正如十进制中
+<code>1/3 = 0.333...</code>
+无限循环，二进制中许多有限小数也会变成<strong>无限循环小数</strong>。由于计算机存储空间有限，只能截断或舍入，<strong>误差由此产生</strong>。</p>
+<h3
+id="三浮点数在计算机中的存储方式">三、浮点数在计算机中的存储方式</h3>
+<h4 id="科学计数法类比">3.1 科学计数法类比</h4>
+<p>计算机内部以类似<strong>科学计数法</strong>的形式存储浮点数，由两部分组成：</p>
+<ul>
+<li><strong>有效数字（Significand）</strong>：一个整数（实际上以二进制形式存储）。</li>
+<li><strong>指数（Exponent）</strong>：2 的幂次，指示小数点的位置。</li>
+</ul>
+<p>例如，内部表示为 <code>(125, -2)</code> 的含义是：</p>
+<ul>
+<li>有效数字 <code>125</code> 转换为二进制。</li>
+<li>指数 <code>-2</code> 表示将小数点向左移动 2 位。</li>
+<li>最终表示的十进制数为 <code>31.25</code>。</li>
+</ul>
+<p>由于小数点位置可随指数“浮动”，这种表示法被称为<strong>浮点数（Floating
+Point Number）</strong>。</p>
+<h4 id="精度限制与舍入误差">3.2 精度限制与舍入误差</h4>
+<ul>
+<li>现代计算机通常使用 <strong>32 位或 64 位</strong>
+来存储浮点数，其中分配给有效数字的位数是固定的。</li>
+<li>若一个数的二进制表示超过了可用位数（例如 0.1 需要 50
+多位），则多余的部分会被<strong>截断（truncate）</strong>。</li>
+<li>截断引入的误差约在 <code>2⁻³²</code> 数量级（对于 32
+位），看似极小，但在<strong>反复运算中会累积放大</strong>，导致如开头示例所示的反直觉结果。</li>
+</ul>
+<p>拓展 - IEEE754 标准</p>
+<p>现代计算机普遍遵循 <strong>IEEE 754</strong>
+标准来表示浮点数。该标准定义了单精度（32位）和双精度（64位）的存储格式，包括符号位、指数位（移码表示）和尾数位（隐含前导
+1）。了解这一标准有助于理解 <code>0.1 + 0.2 == 0.3</code> 为何为
+<code>False</code> 以及 <code>inf</code>、<code>NaN</code>
+等特殊值的产生。</p>
+<h4 id="编程启示-1">3.3 编程启示</h4>
+<ul>
+<li><strong>绝对不要用 <code>==</code>
+直接比较两个浮点数是否相等</strong>。</li>
+<li>正确做法：判断两数之差的绝对值是否小于一个极小的阈值（<code>epsilon</code>）。</li>
+</ul>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">abs</span>(a - b) &lt; <span class="number">1e-9</span>   <span class="comment"># 视为相等</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="四近似方法approximation-method">四、近似方法（Approximation
+Method）</h3>
+<h4 id="猜与检查算法的局限">4.1 猜与检查算法的局限</h4>
+<p>上一讲的“猜与检查”只能判断整数是否为完全平方数（或立方数），无法给出非完全平方数的近似平方根。近似方法正是为了解决这一局限。</p>
+<h4 id="近似方法的基本思想">4.2 近似方法的基本思想</h4>
+<ol type="1">
+<li>从一个<strong>已知太小</strong>的初始猜测值开始（如
+<code>0</code>）。</li>
+<li>以一个<strong>很小的步长（increment）</strong> 逐步增加猜测值。</li>
+<li>每次检查当前猜测的平方是否已经<strong>足够接近</strong>目标值
+<code>x</code>。</li>
+<li>若在允许的误差范围内，则停止并返回当前猜测作为近似解。</li>
+</ol>
+<p><strong>两个关键参数</strong>：</p>
+<ul>
+<li><strong><code>epsilon</code></strong>：允许的误差范围（如
+<code>0.01</code>），决定何时认为“足够接近”。</li>
+<li><strong><code>increment</code></strong>：步长（如
+<code>0.0001</code>），决定猜测值的精细程度。</li>
+</ul>
+<h4 id="代码实现初始版本">4.3 代码实现（初始版本）</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">36</span></span><br><span class="line">epsilon = <span class="number">0.01</span></span><br><span class="line">increment = <span class="number">0.0001</span></span><br><span class="line">guess = <span class="number">0.0</span></span><br><span class="line">num_guesses = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">abs</span>(guess ** <span class="number">2</span> - x) &gt;= epsilon:</span><br><span class="line">    guess += increment</span><br><span class="line">    num_guesses += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Square root of <span class="subst">&#123;x&#125;</span> is approx <span class="subst">&#123;guess&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Number of guesses: <span class="subst">&#123;num_guesses&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p>运行 <code>x = 36</code> 时，输出约为
+<code>5.9991...</code>，猜测次数约 59,992 次。</p>
+<h4 id="隐藏陷阱步长过大导致无限循环">4.4
+隐藏陷阱：步长过大导致无限循环</h4>
+<p>尝试计算 <code>x = 54321</code>
+时，程序<strong>陷入无限循环</strong>，永不终止。</p>
+<p><strong>原因分析</strong>：</p>
+<ul>
+<li>步长 <code>increment = 0.0001</code> 相对较大。</li>
+<li>随着 <code>guess</code> 增加，<code>guess²</code> 从小于
+<code>x</code> 逐渐逼近 <code>x</code>。</li>
+<li>在某一步，<code>guess²</code> <strong>直接跳过</strong>了
+<code>[x - epsilon, x + epsilon]</code>
+这个狭窄区间，从小于区间下限<strong>跃迁到大于区间上限</strong>。</li>
+<li>条件 <code>abs(guess² - x) &gt;= epsilon</code>
+<strong>永远为真</strong>，循环无法退出。</li>
+</ul>
+<p><strong>可视化理解</strong>：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">x-ε          x          x+ε</span><br><span class="line"> |------------|------------|</span><br><span class="line">             ↑</span><br><span class="line">         guess² 跳跃前</span><br><span class="line">                     ↑</span><br><span class="line">                 guess² 跳跃后（越过整个区间）</span><br></pre></td></tr></table></figure></div>
+<h4 id="解决方案添加额外退出条件">4.5 解决方案：添加额外退出条件</h4>
+<p>借鉴“猜与检查”算法中的思路，当 <code>guess² &gt; x</code>
+时，继续增加 <code>guess</code>
+只会使结果越来越远，此时应<strong>主动终止搜索</strong>。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="built_in">abs</span>(guess ** <span class="number">2</span> - x) &gt;= epsilon <span class="keyword">and</span> guess ** <span class="number">2</span> &lt;= x:</span><br><span class="line">    guess += increment</span><br><span class="line">    num_guesses += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">abs</span>(guess ** <span class="number">2</span> - x) &lt; epsilon:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Square root approx: <span class="subst">&#123;guess&#125;</span>&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;Failed to find square root. Last guess: <span class="subst">&#123;guess&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p>加入 <code>guess ** 2 &lt;= x</code> 条件后，对于
+<code>54321</code>，程序会报告失败，而不是无限循环。</p>
+<h4 id="精度与速度的权衡">4.6 精度与速度的权衡</h4>
+<p>若希望程序能成功找到近似解，有两种调整策略：</p>
+<table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 46%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr>
+<th>策略</th>
+<th>效果</th>
+<th>代价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>减小步长</strong></td>
+<td>能更精细地逼近，避免跳过 epsilon 区间</td>
+<td>循环次数成倍增加，程序变慢</td>
+</tr>
+<tr>
+<td><strong>增大 epsilon</strong></td>
+<td>放宽“足够接近”的定义，更容易命中</td>
+<td>结果精度下降</td>
+</tr>
+</tbody>
+</table>
+<p>例如，将 <code>increment</code> 从 <code>0.0001</code> 减小到
+<code>0.00001</code>，对于 <code>54321</code>，猜测次数从 230 万次增至
+2300 万次，程序运行时间显著延长，但能成功返回近似值。</p>
+<p><strong>核心权衡</strong>：在近似算法中，<strong>精度与速度往往不可兼得</strong>，需根据具体应用场景做出取舍。</p>
+<h3 id="五本讲核心总结-1">五、本讲核心总结</h3>
+<ol type="1">
+<li><p><strong>浮点数误差的根源</strong>：计算机以有限位数的二进制存储小数，某些十进制小数无法精确表示，产生舍入误差，并在重复运算中累积。</p></li>
+<li><p><strong>浮点数比较原则</strong>：<strong>永远不要使用
+<code>==</code></strong>，应使用 <code>abs(a - b) &lt; epsilon</code>
+判断是否足够接近。</p></li>
+<li><p>近似方法</p>
+<p>：</p>
+<ul>
+<li>针对无法直接求得精确解的问题，通过逐步试探和误差控制，获得一个“足够好”的近似解。</li>
+<li>需要定义两个参数：步长 <code>increment</code> 和允许误差
+<code>epsilon</code>。</li>
+</ul></li>
+<li><p><strong>避免无限循环</strong>：当使用固定步长搜索时，必须警惕“跳过目标区间”的风险，应结合<strong>额外退出条件</strong>（如值已超过目标值）来保证程序终止。</p></li>
+<li><p><strong>权衡意识</strong>：减小步长可提高精度但牺牲速度；增大
+epsilon
+可加快收敛但降低精度。实际编程中需根据需求做出合理选择。</p></li>
+</ol>
+<hr />
+<h2 id="lecture-6-bisection-search">Lecture 6: Bisection Search</h2>
+<h3 id="一二分查找的动机">一、二分查找的动机</h3>
+<h4 id="近似方法的回顾与局限">1.1 近似方法的回顾与局限</h4>
+<p>上一讲中我们使用<strong>近似方法（Approximation Method）</strong>
+来计算平方根：</p>
+<ul>
+<li>从 0 开始，以极小步长（如 <code>0.0001</code>）递增猜测值。</li>
+<li>当猜测值平方与目标值的差小于 <code>epsilon</code> 时停止。</li>
+<li>对于较大数值（如
+54321），该算法可能需要<strong>数千万次循环</strong>，耗时数十秒甚至陷入无限循环（因步长过大跳过目标区间）。</li>
+<li>必须添加额外退出条件（<code>guess² &lt;= x</code>）才能避免死循环。</li>
+</ul>
+<p>这一局限性促使我们寻找一种更高效的算法——<strong>二分查找（Bisection
+Search）</strong>。</p>
+<h3 id="二二分查找的基本思想">二、二分查找的基本思想</h3>
+<h4 id="猜书页游戏">2.1 猜书页游戏</h4>
+<p><strong>场景</strong>：一本 448
+页的书中夹有钞票，每次猜测后被告知“太高”、“太低”或“正确”。</p>
+<ul>
+<li><p><strong>线性搜索</strong>：逐页询问，最坏需 448 次猜测。</p></li>
+<li><p>二分策略</p>
+<p>：每次猜中间页码，根据反馈</p>
+<p>丢弃一半搜索空间</p>
+<p>。</p>
+<ul>
+<li>第 1 次：猜 224（丢弃一半，剩 224 页）。</li>
+<li>第 2 次：猜 112（剩 112 页）。</li>
+<li>第 3 次：猜 56（剩 56 页）。</li>
+<li>…</li>
+<li>最多仅需 <strong>log₂(448) ≈ 9 次</strong>即可定位。</li>
+</ul></li>
+</ul>
+<h4 id="二分查找的核心要素">2.2 二分查找的核心要素</h4>
+<ul>
+<li><strong>有序性</strong>：搜索空间必须存在明确的顺序（如页码从小到大、字母表顺序）。</li>
+<li><strong>反馈机制</strong>：每次猜测后能获知“太低”或“太高”的信息，从而确定丢弃哪一半。</li>
+<li><strong>区间收缩</strong>：每次迭代将搜索范围缩小为原来的一半。</li>
+</ul>
+<h4 id="对数增长-vs-线性增长">2.3 对数增长 vs 线性增长</h4>
+<table>
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 38%" />
+<col style="width: 20%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr>
+<th>搜索方式</th>
+<th>搜索空间翻倍时所需额外次数</th>
+<th>448 页所需次数</th>
+<th>增长类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>线性搜索（逐页）</td>
+<td>需额外检查所有新增页</td>
+<td>最多 448 次</td>
+<td><strong>线性增长</strong></td>
+</tr>
+<tr>
+<td>二分查找</td>
+<td>仅需 <strong>1 次额外猜测</strong></td>
+<td>最多约 9 次</td>
+<td><strong>对数增长</strong></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>结论</strong>：二分查找的效率远高于线性扫描，尤其在数据量巨大时优势极为明显。</p>
+</blockquote>
+<h3 id="三二分查找求解平方根">三、二分查找求解平方根</h3>
+<h4 id="算法步骤">3.1 算法步骤</h4>
+<ol type="1">
+<li><p>初始化区间</p>
+<p>：</p>
+<ul>
+<li>下界 <code>low = 0</code></li>
+<li>上界 <code>high = x</code>（对于 <code>x ≥ 1</code>）</li>
+</ul></li>
+<li><p><strong>初始猜测</strong>：<code>guess = (low + high) / 2</code></p></li>
+<li><p>循环条件</p>
+<p>：当</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">|guess² - x| ≥ epsilon</span><br></pre></td></tr></table></figure></div>
+<p>时继续迭代：</p>
+<ul>
+<li>若 <code>guess² &lt; x</code> → 猜测过低 → 更新
+<code>low = guess</code></li>
+<li>若 <code>guess² &gt; x</code> → 猜测过高 → 更新
+<code>high = guess</code></li>
+<li>重新计算 <code>guess = (low + high) / 2</code></li>
+</ul></li>
+<li><p>循环结束后输出近似平方根。</p></li>
+</ol>
+<p>浮点数精度对二分查找的影响</p>
+<p>由于浮点误差，当区间宽度缩小到机器精度量级时，<code>low</code> 和
+<code>high</code>
+可能无法继续区分，导致死循环。一种稳健做法是<strong>限制最大迭代次数</strong>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">max_iterations = <span class="number">1000</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(max_iterations):</span><br><span class="line">    <span class="comment"># 二分逻辑</span></span><br><span class="line">    <span class="keyword">if</span> high - low &lt; <span class="number">1e-15</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="代码实现">3.2 代码实现</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">54321</span></span><br><span class="line">epsilon = <span class="number">0.01</span></span><br><span class="line">low = <span class="number">0.0</span></span><br><span class="line">high = x</span><br><span class="line">guess = (low + high) / <span class="number">2.0</span></span><br><span class="line">num_guesses = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">abs</span>(guess ** <span class="number">2</span> - x) &gt;= epsilon:</span><br><span class="line">    <span class="keyword">if</span> guess ** <span class="number">2</span> &lt; x:</span><br><span class="line">        low = guess</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        high = guess</span><br><span class="line">    guess = (low + high) / <span class="number">2.0</span></span><br><span class="line">    num_guesses += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Square root of <span class="subst">&#123;x&#125;</span> ≈ <span class="subst">&#123;guess&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Number of guesses: <span class="subst">&#123;num_guesses&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="性能对比以-54321-为例">3.3 性能对比（以 54321 为例）</h4>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>猜测次数</th>
+<th>运行时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>近似方法（步长 0.00001）</td>
+<td>约 <strong>23,000,000</strong> 次</td>
+<td>约 20 秒</td>
+</tr>
+<tr>
+<td>二分查找</td>
+<td><strong>约 30 次</strong></td>
+<td>&lt; 1 秒</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>从千万级别降至两位数，充分体现了对数级收敛的巨大威力。</p>
+</blockquote>
+<h4 id="边界情况0-x-1-时的处理">3.4 边界情况：0 &lt; x &lt; 1
+时的处理</h4>
+<p>当 <code>0 &lt; x &lt; 1</code> 时，平方根<strong>大于</strong>
+<code>x</code> 本身。若仍用
+<code>low = 0, high = x</code>，将导致搜索区间不包含真实解，程序陷入死循环。</p>
+<p><strong>解决方案</strong>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> x &gt;= <span class="number">1</span>:</span><br><span class="line">    low, high = <span class="number">0.0</span>, x</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    low, high = x, <span class="number">1.0</span>   <span class="comment"># 平方根必在 (x, 1) 之间</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="二分查找的适用条件总结">3.5 二分查找的适用条件总结</h4>
+<ol type="1">
+<li>存在明确的<strong>上下界</strong>。</li>
+<li>搜索空间具有<strong>顺序性</strong>（数值大小、字母顺序等）。</li>
+<li>每次猜测能获得<strong>比较反馈</strong>（过高/过低）。</li>
+</ol>
+<p><strong>反例</strong>：猜测 4 位 PIN
+码，仅返回“正确/错误”，无“过高/过低”提示 → 无法使用二分查找。</p>
+<h3
+id="四牛顿-拉弗森方法newton-raphson-method">四、牛顿-拉弗森方法（Newton-Raphson
+Method）</h3>
+<h4 id="算法原理">4.1 算法原理</h4>
+<p>用于寻找多项式方程 <code>f(x) = 0</code>
+的根。对于平方根问题，等价于求解 <code>f(x) = x² - k = 0</code>。</p>
+<p><strong>迭代公式</strong>：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_guess = old_guess - f(old_guess) / f&#x27;(old_guess)</span><br></pre></td></tr></table></figure></div>
+<p>其中：</p>
+<ul>
+<li><code>f(guess) = guess² - k</code></li>
+<li><code>f'(guess) = 2 * guess</code>（导数）</li>
+</ul>
+<p>代入得：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">new_guess = guess - (guess² - k) / (2 * guess)</span><br></pre></td></tr></table></figure></div>
+<h4 id="代码实现-1">4.2 代码实现</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">k = <span class="number">54321</span></span><br><span class="line">epsilon = <span class="number">0.01</span></span><br><span class="line">guess = k / <span class="number">2.0</span>   <span class="comment"># 初始猜测可任意选</span></span><br><span class="line">num_guesses = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">abs</span>(guess ** <span class="number">2</span> - k) &gt;= epsilon:</span><br><span class="line">    guess = guess - (guess ** <span class="number">2</span> - k) / (<span class="number">2</span> * guess)</span><br><span class="line">    num_guesses += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Square root of <span class="subst">&#123;k&#125;</span> ≈ <span class="subst">&#123;guess&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Number of guesses: <span class="subst">&#123;num_guesses&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<h4 id="性能与局限">4.3 性能与局限</h4>
+<ul>
+<li><strong>性能</strong>：收敛极快（通常仅需数次迭代即可获得高精度近似）。</li>
+<li><strong>局限</strong>：仅适用于<strong>特定多项式求根</strong>问题，不能像二分查找那样通用于任何有序搜索场景。</li>
+</ul>
+<p>牛顿-拉弗森方法失效的情况</p>
+<ul>
+<li>初始猜测不佳可能导致<strong>发散</strong>或不收敛（例如导数接近零时）。</li>
+<li>对于多根函数，收敛结果依赖于初始值。</li>
+<li>实际工程应用中常与二分法结合，先用二分法逼近至足够小区间，再切换为牛顿法加速收敛。</li>
+</ul>
+<h3 id="五本讲核心总结-2">五、本讲核心总结</h3>
+<ol type="1">
+<li><strong>二分查找</strong>：
+<ul>
+<li>利用<strong>有序性</strong>和<strong>比较反馈</strong>，每次迭代将搜索空间减半。</li>
+<li>时间复杂度为 <strong>O(log n)</strong>，远超线性搜索的 O(n)。</li>
+<li>需注意边界条件（如 0 &lt; x &lt; 1 时区间的正确设置）。</li>
+</ul></li>
+<li><strong>牛顿-拉弗森方法</strong>：
+<ul>
+<li>基于切线逼近的迭代求根算法。</li>
+<li>对于平方根问题收敛极快，但适用面较窄。</li>
+</ul></li>
+<li><strong>算法设计三要素</strong>（贯穿猜与检查、近似、二分、牛顿法）：
+<ul>
+<li><strong>循环结构</strong>：重复执行。</li>
+<li><strong>猜测生成</strong>：如何产生下一个候选解（线性递增 / 取中点 /
+公式推导）。</li>
+<li><strong>终止条件</strong>：何时认为答案已足够好（精确相等 / 在
+epsilon 范围内）。</li>
+</ul></li>
+<li><strong>函数与模块化的预告</strong>：
+<ul>
+<li>下一讲将介绍<strong>函数</strong>，通过<strong>分解（Decomposition）</strong>
+和<strong>抽象（Abstraction）</strong>
+将大程序拆分为可复用的独立模块，提升代码的可读性与可维护性。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="lecture-7-decomposition-abstraction-functions">Lecture 7:
+Decomposition, Abstraction, Functions</h2>
+<h3 id="一分解与抽象从智能手机说起">一、分解与抽象：从智能手机说起</h3>
+<h4 id="现实世界中的黑盒思维">1.1 现实世界中的黑盒思维</h4>
+<p>以<strong>智能手机</strong>为例：</p>
+<ul>
+<li>用户只关心<strong>输入与输出</strong>的关系：按下按钮→屏幕亮起，滑动屏幕→页面切换。</li>
+<li>用户<strong>无需了解</strong>内部电路、芯片、操作系统如何实现这些功能。</li>
+<li>这种隐藏内部实现细节、只暴露必要接口的思想称为<strong>抽象（Abstraction）</strong>。</li>
+</ul>
+<h4 id="抽象如何促成分解">1.2 抽象如何促成分解</h4>
+<ul>
+<li>不同制造商分别开发手机的各个组件（屏幕、电池、摄像头），此即<strong>分解（Decomposition）</strong>。</li>
+<li>组件之间通过<strong>标准化的接口</strong>协作：某组件需要哪些输入，会输出什么结果。</li>
+<li>各制造商无需知道其他组件内部如何工作，只需遵循接口规范即可共同完成一部手机的制造。</li>
+</ul>
+<h4 id="在编程中的应用">1.3 在编程中的应用</h4>
+<ul>
+<li><strong>抽象</strong>：将一段完成特定任务的代码封装为“黑盒”，使用者只需知道给它什么输入、它会返回什么输出。</li>
+<li><strong>分解</strong>：将大型程序拆分为多个独立、可复用的功能模块，各自开发调试，最后组合起来。</li>
+</ul>
+<h3 id="二函数的定义与调用">二、函数的定义与调用</h3>
+<h4 id="我们早已使用过函数">2.1 我们早已使用过函数</h4>
+<p>Python 内置的函数如
+<code>max()</code>、<code>abs()</code>、<code>len()</code>
+都是典型的“黑盒”：</p>
+<ul>
+<li><code>max(3, 5)</code> → 输入两个数，返回较大者。</li>
+<li><code>abs(-7)</code> → 输入一个数，返回其绝对值。</li>
+<li><code>len("hello")</code> → 输入字符串，返回字符个数。</li>
+</ul>
+<p>本讲目标：<strong>学会编写自己的函数</strong>。</p>
+<h4 id="函数的基本组成">2.2 函数的基本组成</h4>
+<p>一个完整的函数包含：</p>
+<table>
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr>
+<th>组成部分</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>函数名</strong></td>
+<td>描述性名称，通常为动词或动词短语（如
+<code>is_even</code>、<code>sum_odds</code>）</td>
+</tr>
+<tr>
+<td><strong>参数（Parameters）</strong></td>
+<td>函数执行所需的输入，写在圆括号内，多个参数用逗号分隔</td>
+</tr>
+<tr>
+<td><strong>文档字符串（Docstring）</strong></td>
+<td>用三引号包裹的注释，描述函数功能、输入和返回值，即<strong>规格说明</strong></td>
+</tr>
+<tr>
+<td><strong>函数体</strong></td>
+<td>实现具体功能的代码块，<strong>必须缩进</strong></td>
+</tr>
+<tr>
+<td><strong>返回值（Return Value）</strong></td>
+<td>使用 <code>return</code> 语句将计算结果返回给调用者，如果没有
+<code>return</code>，默认返回 <code>None</code></td>
+</tr>
+</tbody>
+</table>
+<p>拓展内容</p>
+<p><a class="link" 
+ target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3.14/tutorial/controlflow.html#documentation-strings" >Python
+文档/更多控制流工具/函数定义详解/文档字符串<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h4 id="函数定义语法">2.3 函数定义语法</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">function_name</span>(<span class="params">param1, param2</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    文档字符串（docstring）：</span></span><br><span class="line"><span class="string">    描述函数的功能、参数要求、返回值。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># 函数体：实现功能的代码</span></span><br><span class="line">    result = param1 + param2</span><br><span class="line">    <span class="keyword">return</span> result</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li><code>def</code> 关键字表示函数定义的开始。</li>
+<li>圆括号后必须有<strong>冒号</strong> <code>:</code>。</li>
+<li>函数体内所有语句<strong>必须保持相同的缩进级别</strong>（通常为 4
+个空格）。</li>
+</ul>
+<h4 id="示例判断偶数">2.4 示例：判断偶数</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_even</span>(<span class="params">i</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    参数 i：一个正整数</span></span><br><span class="line"><span class="string">    返回值：若 i 为偶数则返回 True，否则返回 False</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> i % <span class="number">2</span> == <span class="number">0</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>要点</strong>：</p>
+<ul>
+<li>函数名 <code>is_even</code> 清晰表达其作用。</li>
+<li>文档字符串明确了输入和输出。</li>
+<li>函数体仅一行，直接将布尔表达式的结果返回。</li>
+</ul>
+<h3 id="三定义与调用的区别重要">三、定义与调用的区别（重要）</h3>
+<h4 id="函数定义不执行任何代码">3.1 函数定义不执行任何代码</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">greet</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello!&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p>这段代码<strong>只是告诉 Python</strong> 存在一个名为
+<code>greet</code>
+的函数，<strong>不会</strong>立即打印任何内容。函数定义相当于将一段代码“登记在册”。</p>
+<h4 id="函数调用才真正执行">3.2 函数调用才真正执行</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">greet()   <span class="comment"># 此时才执行函数体内的 print(&quot;Hello!&quot;)</span></span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>调用函数时，程序跳转到函数体内部执行，遇到 <code>return</code>
+或函数体结束时返回调用处。</li>
+<li>函数可被调用<strong>任意多次</strong>，每次可传入不同参数。</li>
+</ul>
+<h4 id="函数调用是一个表达式">3.3 函数调用是一个表达式</h4>
+<p>函数调用会被<strong>其返回值所替换</strong>。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">result = is_even(<span class="number">4</span>)      <span class="comment"># is_even(4) 返回 True，等价于 result = True</span></span><br><span class="line"><span class="built_in">print</span>(is_even(<span class="number">3</span>))        <span class="comment"># is_even(3) 返回 False，等价于 print(False)</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="四函数调用过程详解">四、函数调用过程详解</h3>
+<h4 id="形式参数-vs-实际参数">4.1 形式参数 vs 实际参数</h4>
+<ul>
+<li><strong>形式参数（Formal
+Parameter）</strong>：函数定义时圆括号内的变量名（如
+<code>i</code>），在函数体内充当占位符。</li>
+<li><strong>实际参数（Actual
+Argument）</strong>：调用函数时传入的具体值（如
+<code>3</code>、<code>x</code>、<code>y+2</code>）。</li>
+</ul>
+<h4 id="参数传递与执行流程">4.2 参数传递与执行流程</h4>
+<p>调用 <code>is_even(3)</code> 时：</p>
+<ol type="1">
+<li>Python 查找名为 <code>is_even</code> 的函数对象。</li>
+<li>将实际参数 <code>3</code> <strong>绑定</strong>到形式参数
+<code>i</code>。</li>
+<li>执行函数体：<code>return 3 % 2 == 0</code> →
+<code>return False</code>。</li>
+<li>函数返回 <code>False</code>，调用处被替换为
+<code>False</code>。</li>
+</ol>
+<h4 id="内存视角">4.3 内存视角</h4>
+<ul>
+<li><strong>函数定义</strong>：创建一个函数对象，其名（如
+<code>is_even</code>）绑定到该对象（一段可执行代码）。</li>
+<li><strong>变量赋值</strong>：<code>a = 3</code> 在内存中创建整数对象
+<code>3</code> 并绑定到名字 <code>a</code>。</li>
+<li><strong>函数调用</strong>：<code>a = is_even(3)</code> →
+先执行函数获得返回值，再将返回值绑定到 <code>a</code>。</li>
+</ul>
+<hr />
+<h3 id="五编写函数的实践指南">五、编写函数的实践指南</h3>
+<h4 id="从规格说明出发">5.1 从规格说明出发</h4>
+<p>给定任务：“编写函数 <code>div_by(n, d)</code>，若 <code>d</code> 整除
+<code>n</code> 则返回 <code>True</code>，否则返回
+<code>False</code>。”</p>
+<ol type="1">
+<li><p><strong>确定函数名和参数</strong>：<code>div_by(n, d)</code></p></li>
+<li><p>编写文档字符串</p>
+<p>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">div_by</span>(<span class="params">n, d</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    参数 n, d：均为大于 0 的整数</span></span><br><span class="line"><span class="string">    返回值：若 d 整除 n 则返回 True，否则返回 False</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>实现函数体</p>
+<p>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> n % d == <span class="number">0</span></span><br></pre></td></tr></table></figure></div></li>
+</ol>
+<h4 id="常见错误误用-print-替代-return">5.2 常见错误：误用
+<code>print</code> 替代 <code>return</code></h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 错误示例</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">div_by</span>(<span class="params">n, d</span>):</span><br><span class="line">    <span class="keyword">if</span> n % d == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="literal">True</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="literal">False</span>)</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>函数若没有 <code>return</code> 语句，默认返回
+<code>None</code>。</li>
+<li>调用 <code>print(div_by(10, 3))</code> 会先打印
+<code>False</code>，再打印 <code>None</code>（因为 <code>div_by</code>
+返回 <code>None</code>）。</li>
+</ul>
+<h4 id="逐步开发先简单后复杂">5.3 逐步开发：先简单后复杂</h4>
+<p>以“计算 a 到 b 之间所有奇数之和”为例。</p>
+<p><strong>步骤 1</strong>：在纸上模拟简单例子（a=2, b=4 → 3；a=2, b=7 →
+3+5+7=15）。</p>
+<p><strong>步骤 2</strong>：先实现“计算 a 到 b 所有整数之和”：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_all</span>(<span class="params">a, b</span>):</span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(a, b + <span class="number">1</span>):   <span class="comment"># 注意 +1 以包含 b</span></span><br><span class="line">        total += i</span><br><span class="line">    <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure></div>
+<p><strong>步骤 3</strong>：测试通过后，增加奇数判断：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">sum_odds</span>(<span class="params">a, b</span>):</span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(a, b + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">1</span>:           <span class="comment"># 只累加奇数</span></span><br><span class="line">            total += i</span><br><span class="line">    <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure></div>
+<p><strong>步骤 4</strong>：用多个测试用例验证（包括边界如 a=b、a&gt;b
+等）。</p>
+<h4 id="调试技巧">5.4 调试技巧</h4>
+<ul>
+<li>在函数体内临时插入 <code>print</code> 语句，观察变量值变化。</li>
+<li>使用 <strong>Python Tutor</strong>
+可视化函数调用时的参数传递与执行流程。</li>
+<li>先在小范围数据上测试，确认无误后再推广。</li>
+</ul>
+<h3 id="六本讲核心总结-2">六、本讲核心总结</h3>
+<ol type="1">
+<li><p>抽象与分解</p>
+<p>：</p>
+<ul>
+<li>抽象：隐藏实现细节，仅暴露接口。</li>
+<li>分解：将大问题拆分为小模块分别解决。</li>
+</ul></li>
+<li><p><strong>函数定义</strong>：使用 <code>def</code>
+关键字，包含函数名、参数、文档字符串和缩进的函数体。</p></li>
+<li><p><strong>函数调用</strong>：定义时不执行，调用时才运行；调用表达式被返回值替换。</p></li>
+<li><p><strong><code>return</code> 的重要性</strong>：函数通过
+<code>return</code> 将结果返回给调用者；缺少 <code>return</code>
+会默认返回 <code>None</code>。</p></li>
+<li><p>开发流程</p>
+<p>：</p>
+<ul>
+<li>先写规格（docstring）。</li>
+<li>在纸上模拟简单例子。</li>
+<li>先实现简化版本，测试通过后再添加细节。</li>
+<li>善用 <code>print</code> 和 Python Tutor 调试。</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="lecture-8-functions-as-objects">Lecture 8: Functions as
+Objects</h2>
+<h3 id="一函数的返回值与-none">一、函数的返回值与 <code>None</code></h3>
+<h4 id="每个函数都有返回值">1.1 每个函数都有返回值</h4>
+<ul>
+<li>若函数体内有 <code>return</code> 语句，则函数返回
+<code>return</code> 后面的表达式的值。</li>
+<li>若函数体执行到末尾仍未遇到 <code>return</code>，Python
+会<strong>隐式地</strong>返回一个特殊值：<code>None</code>。</li>
+</ul>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">no_return</span>():</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Hello&quot;</span>)   <span class="comment"># 无 return 语句</span></span><br><span class="line"></span><br><span class="line">result = no_return()  <span class="comment"># 打印 &quot;Hello&quot;，result 被赋值为 None</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="print-与-return-的本质区别">1.2 <code>print</code> 与
+<code>return</code> 的本质区别</h4>
+<table>
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr>
+<th>特性</th>
+<th><code>print</code></th>
+<th><code>return</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>作用范围</strong></td>
+<td>任何位置均可使用</td>
+<td><strong>仅在函数内部</strong>有意义</td>
+</tr>
+<tr>
+<td><strong>功能</strong></td>
+<td>将内容输出到控制台</td>
+<td>将值返回给函数调用者</td>
+</tr>
+<tr>
+<td><strong>能否被程序复用</strong></td>
+<td>否，输出后即消失</td>
+<td>是，返回值可被赋值、参与运算</td>
+</tr>
+<tr>
+<td><strong>多次执行</strong></td>
+<td>可执行任意多次</td>
+<td>一旦执行，函数立即终止</td>
+</tr>
+</tbody>
+</table>
+<p><strong>典型错误示例</strong>：在函数内部使用 <code>print</code> 代替
+<code>return</code>，并试图将函数调用结果赋给变量。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_even_wrong</span>(<span class="params">i</span>):</span><br><span class="line">    <span class="built_in">print</span>(i % <span class="number">2</span> == <span class="number">0</span>)          <span class="comment"># 输出 True/False，但不返回任何值</span></span><br><span class="line"></span><br><span class="line">result = is_even_wrong(<span class="number">4</span>)      <span class="comment"># 控制台输出 True，但 result 为 None</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>正确写法</strong>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_even_correct</span>(<span class="params">i</span>):</span><br><span class="line">    <span class="keyword">return</span> i % <span class="number">2</span> == <span class="number">0</span>          <span class="comment"># 返回布尔值</span></span><br><span class="line"></span><br><span class="line">result = is_even_correct(<span class="number">4</span>)    <span class="comment"># result 为 True</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="printprint5-为何输出-none">1.3 <code>print(print(5))</code>
+为何输出 <code>None</code></h4>
+<p><code>print</code> 本身是一个函数，它不返回任何有意义的值（返回
+<code>None</code>）。因此：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">print</span>(<span class="number">5</span>))</span><br><span class="line"><span class="comment"># 内层 print(5) 输出 5，返回 None</span></span><br><span class="line"><span class="comment"># 外层 print(None) 输出 None</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="练习修复缺少-return-的函数">1.4 练习：修复缺少
+<code>return</code> 的函数</h4>
+<p><strong>任务</strong>：修复判断三角数（1, 3, 6, 10,
+…）的函数，使其正确返回布尔值。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_triangular</span>(<span class="params">n</span>):</span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):   <span class="comment"># 原为 range(n)，导致无法判断 n=1</span></span><br><span class="line">        total += i</span><br><span class="line">        <span class="keyword">if</span> total == n:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>         <span class="comment"># 原为 print(True)</span></span><br><span class="line">        <span class="keyword">elif</span> total &gt; n:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span>        <span class="comment"># 原为 print(False)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span>                <span class="comment"># 循环结束仍未找到</span></span><br></pre></td></tr></table></figure></div>
+<h3 id="二函数作为对象">二、函数作为对象</h3>
+<h4 id="函数即对象">2.1 函数即对象</h4>
+<p>在 Python 中，<strong>函数也是一种对象</strong>，其类型为
+<code>function</code>。因此：</p>
+<ul>
+<li>函数名本身就是一个指向函数对象的变量。</li>
+<li>可以将函数赋值给另一个变量，两个变量指向同一个函数对象。</li>
+<li>可以将函数作为参数传递给另一个函数。</li>
+<li>函数可以作为其他函数的返回值。</li>
+</ul>
+<h4 id="函数名的赋值">2.2 函数名的赋值</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">is_even</span>(<span class="params">i</span>):</span><br><span class="line">    <span class="keyword">return</span> i % <span class="number">2</span> == <span class="number">0</span></span><br><span class="line"></span><br><span class="line">my_func = is_even        <span class="comment"># 注意：没有括号，不是调用</span></span><br><span class="line"><span class="built_in">print</span>(my_func(<span class="number">4</span>))        <span class="comment"># True，与 is_even(4) 效果相同</span></span><br></pre></td></tr></table></figure></div>
+<p>内存示意：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">is_even ──→ [function: is_even code]</span><br><span class="line">my_func ──→ [同一 function 对象]</span><br></pre></td></tr></table></figure></div>
+<h4 id="将函数作为参数传递">2.3 将函数作为参数传递</h4>
+<p>函数可以像普通变量一样作为另一个函数的参数，从而实现<strong>高阶函数</strong>。</p>
+<p><strong>示例</strong>：实现一个通用的“计数器”函数，统计 0 到 n
+中有多少个数满足某个条件。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">apply</span>(<span class="params">criteria, n</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    参数 criteria：一个函数，接受一个整数，返回布尔值</span></span><br><span class="line"><span class="string">    参数 n：整数上限（包含）</span></span><br><span class="line"><span class="string">    返回值：0～n 中满足 criteria 的整数个数</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> criteria(i):</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用示例</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_even</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x % <span class="number">2</span> == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_five</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">return</span> x == <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(apply(is_even, <span class="number">10</span>))   <span class="comment"># 6（0,2,4,6,8,10）</span></span><br><span class="line"><span class="built_in">print</span>(apply(is_five, <span class="number">10</span>))   <span class="comment"># 1（仅 5）</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="综合示例将函数作为参数的多层调用">2.4
+综合示例：将函数作为参数的多层调用</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">div</span>(<span class="params">a, b</span>):</span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Denom was 0&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">    <span class="keyword">return</span> a / b</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">calc</span>(<span class="params">op, x, y</span>):</span><br><span class="line">    <span class="keyword">return</span> op(x, y)          <span class="comment"># op 是一个函数</span></span><br><span class="line"></span><br><span class="line">res = calc(add, <span class="number">2</span>, <span class="number">3</span>)        <span class="comment"># 5</span></span><br><span class="line">res = calc(div, <span class="number">2</span>, <span class="number">0</span>)        <span class="comment"># 打印 &quot;Denom was 0&quot;，返回 None</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>执行流程（以 <code>calc(add, 2, 3)</code>
+为例）</strong>：</p>
+<ol type="1">
+<li>进入 <code>calc</code> 环境，<code>op</code> 绑定到 <code>add</code>
+函数对象，<code>x=2</code>，<code>y=3</code>。</li>
+<li>执行 <code>return op(x, y)</code>，即
+<code>return add(2, 3)</code>。</li>
+<li>进入 <code>add</code> 环境，返回 <code>5</code> 给
+<code>calc</code>。</li>
+<li><code>calc</code> 返回 <code>5</code> 给主程序。</li>
+</ol>
+<h3 id="三环境与作用域">三、环境与作用域</h3>
+<h4 id="全局环境与局部环境">3.1 全局环境与局部环境</h4>
+<ul>
+<li><strong>全局环境（Global
+Scope）</strong>：主程序运行时所在的环境，定义的变量和函数属于全局。</li>
+<li><strong>局部环境（Local
+Scope）</strong>：每次<strong>函数调用</strong>时创建的新环境，函数执行完毕后即销毁。</li>
+</ul>
+<h4 id="变量查找规则legb-简略版">3.2 变量查找规则（LEGB 简略版）</h4>
+<p>当在函数内部访问一个变量时，Python 按以下顺序查找：</p>
+<ol type="1">
+<li><strong>L</strong>ocal：当前函数内部定义的变量。</li>
+<li><strong>E</strong>nclosing：外层嵌套函数的变量（后续课程涉及）。</li>
+<li><strong>G</strong>lobal：全局环境中的变量。</li>
+<li><strong>B</strong>uilt-in：Python 内置的变量/函数。</li>
+</ol>
+<h4 id="访问全局变量-vs-修改全局变量">3.3 访问全局变量 vs
+修改全局变量</h4>
+<ul>
+<li><strong>读取全局变量</strong>：如果函数内部未定义同名局部变量，Python
+会自动向上查找到全局变量。</li>
+<li><strong>修改全局变量</strong>：如果在函数内部对变量进行<strong>赋值</strong>（如
+<code>x = x + 1</code>），Python
+会默认创建一个<strong>新的局部变量</strong>，除非显式声明
+<code>global x</code>。</li>
+</ul>
+<p><strong>示例对比</strong>：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">access_global</span>():</span><br><span class="line">    <span class="built_in">print</span>(x)          <span class="comment"># 读取全局 x，输出 5</span></span><br><span class="line">    <span class="built_in">print</span>(x + <span class="number">1</span>)      <span class="comment"># 读取全局 x，输出 6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">try_modify</span>():</span><br><span class="line">    x += <span class="number">1</span>            <span class="comment"># UnboundLocalError！试图修改但未声明 global</span></span><br><span class="line">    <span class="built_in">print</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">modify_with_global</span>():</span><br><span class="line">    <span class="keyword">global</span> x</span><br><span class="line">    x += <span class="number">1</span>            <span class="comment"># 正确修改全局变量</span></span><br></pre></td></tr></table></figure></div>
+<h4 id="同名变量在不同作用域互不干扰">3.4
+同名变量在不同作用域互不干扰</h4>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">f</span>(<span class="params">y</span>):</span><br><span class="line">    x = <span class="number">1</span>             <span class="comment"># 局部变量 x</span></span><br><span class="line">    x += <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Inside f:&quot;</span>, x)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">x = <span class="number">5</span>                 <span class="comment"># 全局变量 x</span></span><br><span class="line">z = f(x)              <span class="comment"># 输出 &quot;Inside f: 2&quot;，z = 2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Global x:&quot;</span>, x) <span class="comment"># 输出 &quot;Global x: 5&quot;（未被修改）</span></span><br></pre></td></tr></table></figure></div>
+<p><strong>内存演变</strong>：</p>
+<ol type="1">
+<li>全局环境：<code>f</code> 指向函数对象，<code>x = 5</code>。</li>
+<li>调用 <code>f(5)</code>，创建局部环境：参数 <code>y = 5</code>。</li>
+<li>局部环境内创建 <code>x = 1</code>，修改为 <code>2</code>。</li>
+<li>返回 <code>2</code>，局部环境销毁。全局 <code>x</code> 保持
+<code>5</code>。</li>
+</ol>
+<h3 id="四将算法封装为函数">四、将算法封装为函数</h3>
+<h4 id="示例二分查找求平方根函数化">4.1
+示例：二分查找求平方根函数化</h4>
+<p>将之前编写的二分查找平方根代码封装为函数，增强复用性。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">bisection_root</span>(<span class="params">x, epsilon=<span class="number">0.01</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    参数 x：待求平方根的正数（x &gt;= 1）</span></span><br><span class="line"><span class="string">    参数 epsilon：允许的误差范围</span></span><br><span class="line"><span class="string">    返回值：x 的平方根近似值</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    low = <span class="number">0.0</span></span><br><span class="line">    high = x</span><br><span class="line">    guess = (low + high) / <span class="number">2.0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">abs</span>(guess ** <span class="number">2</span> - x) &gt;= epsilon:</span><br><span class="line">        <span class="keyword">if</span> guess ** <span class="number">2</span> &lt; x:</span><br><span class="line">            low = guess</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            high = guess</span><br><span class="line">        guess = (low + high) / <span class="number">2.0</span></span><br><span class="line">    <span class="keyword">return</span> guess</span><br></pre></td></tr></table></figure></div>
+<h4 id="利用函数构建更复杂程序">4.2 利用函数构建更复杂程序</h4>
+<p><strong>问题</strong>：给定 <code>n</code> 和
+<code>epsilon</code>，统计有多少个整数 <code>i</code> 满足
+<code>|sqrt(i) - n| &lt; epsilon</code>。</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">count_near_sqrt</span>(<span class="params">n, epsilon</span>):</span><br><span class="line">    count = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n ** <span class="number">3</span>):        <span class="comment"># n³ 确保覆盖所有可能候选</span></span><br><span class="line">        sqrt_i = bisection_root(i, epsilon)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(sqrt_i - n) &lt; epsilon:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> count</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>这里直接复用了
+<code>bisection_root</code>，无需关心其内部实现，体现了<strong>抽象</strong>的价值。</li>
+<li>优化思路：可加入“连续未命中即停止”的早期退出机制，减少不必要的循环。</li>
+</ul>
+<h3 id="五本讲核心总结-3">五、本讲核心总结</h3>
+<ol type="1">
+<li><strong><code>return</code> vs <code>print</code></strong>：
+<ul>
+<li><code>return</code>
+将值返回给调用者，函数执行即终止；<code>print</code>
+仅输出到控制台。</li>
+<li>忘记 <code>return</code> 会导致函数返回 <code>None</code>，这是常见
+bug 来源。</li>
+</ul></li>
+<li><strong>函数是一等对象</strong>：
+<ul>
+<li>函数名即变量，可赋值、可作为参数传递、可作为返回值。</li>
+<li>这一特性支持高阶函数（如
+<code>apply(criteria, n)</code>）的编写。</li>
+</ul></li>
+<li><strong>作用域与变量查找</strong>：
+<ul>
+<li>每次函数调用创建独立的局部环境，局部变量在函数返回后销毁。</li>
+<li>读取全局变量是允许的，但<strong>修改</strong>全局变量需用
+<code>global</code> 声明（外层（非全局）函数变量需用
+<code>nonlocal</code>），否则会创建同名局部变量导致
+<code>UnboundLocalError</code>。</li>
+</ul></li>
+<li><strong>封装与复用</strong>：
+<ul>
+<li>将成熟算法（如二分查找）封装为函数，可在不同场景下反复调用。</li>
+<li>通过参数化（如 <code>epsilon</code>）使函数更具灵活性。</li>
+</ul></li>
+</ol>
+<h3 id="ext.-1">Ext. 🤔</h3>
+<p>怎么理解 Python 中的“一切皆对象”？</p>
+<p>最简单的说法就是：在 Python
+里，<strong>所有能用一个变量名引用的东西，本质上都是一个对象</strong>，包括整数、字符串、函数、类、模块，甚至类型本身。</p>
+<p>具体可以看<a href="怎么理解%20Python%20中的“一切皆对象”？">怎么理解
+Python 中的“一切皆对象”？</a></p>
+<h2 id="section"></h2>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> 6.100L Note - 1</li>
+        <li><strong>作者:</strong> Waldeinsamkeit</li>
+        <li><strong>创建于
+                :</strong> 2026-04-19 21:26:14</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2026-04-19 23:56:42
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://github.com/Waldeinsamkeit-GitHub/2026/04/19/6-100L-Note-1/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+
+		
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2026/04/13/LATEX%E6%B5%8B%E8%AF%95/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item truncate max-w-48">LATEX测试</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+		<div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+			<div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        评论
+    </div>
+    
+
+        
+            
+    <div id="waline"></div>
+    <script type="module" data-swup-reload-script>
+      import { init } from '/js/libs/waline.js';
+
+      (function() {
+        const startPath = location.pathname;
+        const startTime = Date.now();
+        const retryDelay = 200;
+        const retryLimit = 5000;
+
+        const runWaline = () => {
+          if (location.pathname !== startPath) {
+            return;
+          }
+
+          const container = document.getElementById('waline');
+          if (!container) {
+            if (Date.now() - startTime < retryLimit) {
+              setTimeout(runWaline, retryDelay);
+            }
+            return;
+          }
+
+          if (window.redefineWalineInstance?.destroy) {
+            window.redefineWalineInstance.destroy();
+          }
+
+          container.innerHTML = '';
+          window.redefineWalineInstance = init({
+            el: '#waline',
+            serverURL: 'https://example.example.com',
+            path: location.pathname,
+            dark: 'body[class~="dark-mode"]',
+            reaction: false,
+            requiredMeta: ['nick', 'mail'],
+            emoji: [],
+                      lang: 'zh-CN',
+          });
+        };
+
+        runWaline();
+      })();
+    </script>
+
+
+
+        
+    
+</div>
+
+		</div>
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">6.100L Note - 1</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#lecture-1-introduction"><span class="nav-text">Lecture 1: Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%80%9D%E7%BB%B4"><span class="nav-text">一、计算机与计算思维</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8Cpython-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95%E4%B8%8E%E5%AF%B9%E8%B1%A1"><span class="nav-text">二、Python 基础语法与对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E8%A1%A8%E8%BE%BE%E5%BC%8F%E4%B8%8E%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">三、表达式与运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E5%8F%98%E9%87%8F%E4%B8%8E%E8%B5%8B%E5%80%BC"><span class="nav-text">四、变量与赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7python-tutor"><span class="nav-text">五、调试工具：Python Tutor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E6%9C%AC%E8%AE%B2%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93"><span class="nav-text">六、本讲核心总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lecture-2-strings-inputoutput-branching"><span class="nav-text">Lecture 2: Strings,
+Input&#x2F;Output, Branching</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%AD%97%E7%AC%A6%E4%B8%B2-strings"><span class="nav-text">一、字符串 (Strings)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E8%BE%93%E5%85%A5%E4%B8%8E%E8%BE%93%E5%87%BA-input-output"><span class="nav-text">二、输入与输出 (Input &amp;
+Output)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%B8%83%E5%B0%94%E5%80%BC%E4%B8%8E%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF-branching"><span class="nav-text">三、布尔值与条件分支
+(Branching)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E6%9C%AC%E8%AE%B2%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93"><span class="nav-text">四、本讲核心总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ext."><span class="nav-text">Ext. 🤔</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lecture-3-iteration"><span class="nav-text">Lecture 3: Iteration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E8%BF%AD%E4%BB%A3%E5%BC%95%E5%85%A5%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E5%BE%AA%E7%8E%AF"><span class="nav-text">一、迭代引入：为什么需要循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8Cwhile-%E5%BE%AA%E7%8E%AF"><span class="nav-text">二、while 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89for-%E5%BE%AA%E7%8E%AF"><span class="nav-text">三、for 循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E8%B0%83%E8%AF%95%E6%8A%80%E5%B7%A7%E4%BD%BF%E7%94%A8-print-%E8%BF%BD%E8%B8%AA%E5%BE%AA%E7%8E%AF"><span class="nav-text">四、调试技巧：使用
+print 追踪循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E6%9C%AC%E8%AE%B2%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93"><span class="nav-text">五、本讲核心总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lecture-4-loops-over-strings-guess-and-check-binary"><span class="nav-text">Lecture 4:
+Loops over Strings, Guess-and-Check, Binary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%BE%AA%E7%8E%AF%E7%9A%84%E6%8F%90%E5%89%8D%E9%80%80%E5%87%BAbreak-%E8%AF%AD%E5%8F%A5"><span class="nav-text">一、循环的提前退出：break
+语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8Cfor-%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">二、for 循环遍历字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%B8%83%E5%B0%94%E6%A0%87%E5%BF%97boolean-flag"><span class="nav-text">三、布尔标志（Boolean Flag）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E7%8C%9C%E4%B8%8E%E6%A3%80%E6%9F%A5%E7%AE%97%E6%B3%95guess-and-check"><span class="nav-text">四、猜与检查算法（Guess-and-Check）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E6%B5%AE%E7%82%B9%E6%95%B0%E8%AF%AF%E5%B7%AE%E4%B8%8E%E4%BA%8C%E8%BF%9B%E5%88%B6%E7%AE%80%E4%BB%8B"><span class="nav-text">五、浮点数误差与二进制简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E6%9C%AC%E8%AE%B2%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93-1"><span class="nav-text">六、本讲核心总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lecture-5-floats-and-approximation-methods"><span class="nav-text">Lecture 5: Floats
+and Approximation Methods</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E6%B5%AE%E7%82%B9%E6%95%B0%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%8A%A8%E6%9C%BA%E5%9B%9E%E9%A1%BE"><span class="nav-text">一、浮点数误差的动机回顾</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8D%81%E8%BF%9B%E5%88%B6%E5%B0%8F%E6%95%B0%E5%A6%82%E4%BD%95%E8%BD%AC%E6%8D%A2%E4%B8%BA%E4%BA%8C%E8%BF%9B%E5%88%B6"><span class="nav-text">二、十进制小数如何转换为二进制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E6%B5%AE%E7%82%B9%E6%95%B0%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="nav-text">三、浮点数在计算机中的存储方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E8%BF%91%E4%BC%BC%E6%96%B9%E6%B3%95approximation-method"><span class="nav-text">四、近似方法（Approximation
+Method）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E6%9C%AC%E8%AE%B2%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93-1"><span class="nav-text">五、本讲核心总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lecture-6-bisection-search"><span class="nav-text">Lecture 6: Bisection Search</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%9A%84%E5%8A%A8%E6%9C%BA"><span class="nav-text">一、二分查找的动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="nav-text">二、二分查找的基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E6%B1%82%E8%A7%A3%E5%B9%B3%E6%96%B9%E6%A0%B9"><span class="nav-text">三、二分查找求解平方根</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E7%89%9B%E9%A1%BF-%E6%8B%89%E5%BC%97%E6%A3%AE%E6%96%B9%E6%B3%95newton-raphson-method"><span class="nav-text">四、牛顿-拉弗森方法（Newton-Raphson
+Method）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E6%9C%AC%E8%AE%B2%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93-2"><span class="nav-text">五、本讲核心总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lecture-7-decomposition-abstraction-functions"><span class="nav-text">Lecture 7:
+Decomposition, Abstraction, Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%88%86%E8%A7%A3%E4%B8%8E%E6%8A%BD%E8%B1%A1%E4%BB%8E%E6%99%BA%E8%83%BD%E6%89%8B%E6%9C%BA%E8%AF%B4%E8%B5%B7"><span class="nav-text">一、分解与抽象：从智能手机说起</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%B0%83%E7%94%A8"><span class="nav-text">二、函数的定义与调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%B0%83%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB%E9%87%8D%E8%A6%81"><span class="nav-text">三、定义与调用的区别（重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B%E8%AF%A6%E8%A7%A3"><span class="nav-text">四、函数调用过程详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E7%BC%96%E5%86%99%E5%87%BD%E6%95%B0%E7%9A%84%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97"><span class="nav-text">五、编写函数的实践指南</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E6%9C%AC%E8%AE%B2%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93-2"><span class="nav-text">六、本讲核心总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lecture-8-functions-as-objects"><span class="nav-text">Lecture 8: Functions as
+Objects</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%87%BD%E6%95%B0%E7%9A%84%E8%BF%94%E5%9B%9E%E5%80%BC%E4%B8%8E-none"><span class="nav-text">一、函数的返回值与 None</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%AF%B9%E8%B1%A1"><span class="nav-text">二、函数作为对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E7%8E%AF%E5%A2%83%E4%B8%8E%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-text">三、环境与作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E5%B0%86%E7%AE%97%E6%B3%95%E5%B0%81%E8%A3%85%E4%B8%BA%E5%87%BD%E6%95%B0"><span class="nav-text">四、将算法封装为函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E6%9C%AC%E8%AE%B2%E6%A0%B8%E5%BF%83%E6%80%BB%E7%BB%93-3"><span class="nav-text">五、本讲核心总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ext.-1"><span class="nav-text">Ext. 🤔</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#section"><span class="nav-text"></span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2026</span>
+              -
+            
+            2026&nbsp;&nbsp;<i class="fa-solid fa-fish"></i>&nbsp;&nbsp;<a href="/">Waldeinsamkeit</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 10 篇文章
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.9.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+		<li class="go-comment">
+			<i class="fa-regular fa-comments"></i>
+		</li>
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container" role="dialog" aria-modal="true" aria-label="图片查看器">
+	<button class="image-viewer-close" type="button" aria-label="关闭">
+		<i class="fa-solid fa-xmark"></i>
+	</button>
+	<button class="image-viewer-prev" type="button" aria-label="上一页">
+		<i class="fa-solid fa-chevron-left"></i>
+	</button>
+	<div class="image-viewer-frame">
+		<img src="" alt="">
+	</div>
+	<div class="image-viewer-exif-panel hidden absolute left-1/2 bottom-20 -translate-x-1/2 w-[min(92vw,420px)] max-h-[60vh] overflow-hidden rounded-2xl bg-background-color-transparent-80 p-4 text-left shadow-redefine-flat backdrop-blur-md" role="dialog" aria-label="EXIF" aria-hidden="true">
+		<div class="flex items-center justify-between mb-3">
+			<span class="text-sm font-semibold text-first-text-color">EXIF</span>
+			<button class="image-viewer-exif-close flex h-8 w-8 items-center justify-center rounded-full bg-background-color-transparent-80 text-first-text-color transition hover:bg-background-color-transparent-40" type="button" aria-label="关闭">
+				<i class="fa-solid fa-xmark text-[0.65rem]"></i>
+			</button>
+		</div>
+		<div class="image-viewer-exif-cards grid grid-cols-1 sm:grid-cols-2 gap-3 max-h-[50vh] overflow-y-auto pr-1 scrollbar-hide"></div>
+		<template class="image-viewer-exif-card-template">
+			<div class="rounded-lg bg-background-color-transparent-40 px-3 py-2">
+				<div class="image-viewer-exif-card-header flex items-center gap-2 mb-1">
+					<i class="image-viewer-exif-card-icon fa-solid fa-circle-info text-xs text-third-text-color"></i>
+					<div class="image-viewer-exif-card-title text-xs font-semibold text-first-text-color"></div>
+				</div>
+				<div class="image-viewer-exif-card-items flex flex-col gap-1"></div>
+			</div>
+		</template>
+	</div>
+	<button class="image-viewer-exif-toggle flex items-center gap-2 hidden absolute left-1/2 bottom-6 -translate-x-1/2 rounded-full border border-border-color bg-background-color-transparent-80 px-4 py-2 text-first-text-color backdrop-blur-md transition hover:bg-background-color-transparent-40" type="button" aria-label="EXIF" aria-expanded="false">
+		<i class="fa-solid fa-circle-info text-xs"></i>
+		<span class="text-xs font-semibold uppercase tracking-wider">EXIF</span>
+	</button>
+	<button class="image-viewer-next" type="button" aria-label="下一页">
+		<i class="fa-solid fa-chevron-right"></i>
+	</button>
+</div>
+
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    window.swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+
+    window.dispatchEvent(
+        new CustomEvent("redefine:swup:ready", {
+            detail: {
+                swup: window.swup,
+            },
+        }),
+    );
+</script>
+
+
+
+
+	
+<script src="/js/build/main.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+
+	
+</body>
+
+</html>
